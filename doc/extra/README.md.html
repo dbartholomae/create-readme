@@ -11,8 +11,8 @@
     <div id='base' data-path='../'></div>
 <div id='header'>
   <div id='menu'>
-    <a href='../extra/README.md.html' title='Readme-creator'>
-      Readme-creator
+    <a href='../extra/README.md.html' title='Create-readme'>
+      Create-readme
     </a>
     &raquo;
     <a href='../alphabetical_index.html' title='Index'>
@@ -34,13 +34,65 @@
         </p>
       </nav>
       <div id='filecontents'>
-        <h1 id="readme-creator-1-0-0">readme-creator@1.0.0</h1><p> [<img src="https://npmjs.org/package/readme-creator" alt="npm version(https://badge.fury.io/js/readme-creator.svg)">  [<img src="https://travis-ci.org/dbartholomae/create-readme" alt="build status(https://travis-ci.org/dbartholomae/create-readme.svg))">  [<img src="https://coveralls.io/github/dbartholomae/create-readme" alt="coverage status(https://coveralls.io/repos/dbartholomae/create-readme/badge.svg)">  [<img src="https://david-dm.org/dbartholomae/create-readme" alt="dependency status(https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io)">  [<img src="https://david-dm.org/dbartholomae/create-readme#info=devDependencies" alt="devDependency status(https://david-dm.org/dbartholomae/create-readme/dev-status.svg)">  [<img src="https://gitter.im/dbartholomae/create-readme" alt="Gitter(https://badges.gitter.im/dbartholomae/create-readme.svg)"> </p><p>Automatically creates README.md based on package.json and other existing files.</p><p>test</p><h2 id="usage">Usage</h2><p>Configuration options can also be set in package.json&#39;s config.readme.</p><h2 id="installation">Installation</h2><p>Download node at <a href="http://nodejs.org">nodejs.org</a> and install it, if you haven&#39;t already.</p><pre><code class="lang-sh">npm install readme-creator --save
+        <h1 id="create-readme-1-0-0">create-readme@1.0.0</h1><p> <a href="https://npmjs.org/package/create-readme"><img src="https://badge.fury.io/js/create-readme.svg" alt="npm version"></a>  <a href="https://travis-ci.org/dbartholomae/create-readme"><img src="https://travis-ci.org/dbartholomae/create-readme.svg" alt="build status">)</a>  <a href="https://coveralls.io/github/dbartholomae/create-readme"><img src="https://coveralls.io/repos/dbartholomae/create-readme/badge.svg" alt="coverage status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme"><img src="https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io" alt="dependency status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme#info=devDependencies"><img src="https://david-dm.org/dbartholomae/create-readme/dev-status.svg" alt="devDependency status"></a>  <a href="https://gitter.im/dbartholomae/create-readme"><img src="https://badges.gitter.im/dbartholomae/create-readme.svg" alt="Gitter"></a> </p><p>Automatically creates README.md based on package.json and other existing files.</p><p>This package was heavily inspired by <a href="https://github.com/zeke/package-json-to-readme/">package-json-to-readme</a>. It makes use of <a href="http://rawgit.com/">http://rawgit.com/</a> to serve the documentation and of <a href="http://npmcdn.com/">http://npmcdn.com/</a> to serve the module. Both are only suitable for small projects.</p><h2 id="usage">Usage</h2><p>Configuration options can also be set in package.json&#39;s config.readme.</p><pre><code class="lang-coffeescript"># API use
+
+# Default options, explained in documentation
+options = {
+  debug: false
+  silent: false
+  encoding: &#39;utf-8&#39;
+  addDescription: &#39;&#39;
+  addUsage: &#39;&#39;
+  modules: [&#39;CommonJS&#39;]
+  npmcdn: false
+  licenseFile: &#39;LICENSE.txt&#39;
+  badges: [&#39;npm-version&#39;, &#39;travis&#39;, &#39;coveralls&#39;, &#39;dependencies&#39;, &#39;devDependencies&#39;, &#39;gitter&#39;]
+  branch: &#39;master&#39;
+  replaceModuleReferences: true
+  filename: &#39;README.md&#39;
+}
+
+ReadmeCreator = require &#39;create-readme&#39;
+readmeCreator = new ReadmeCreator(options)
+data = readmeCreator.parse()
+content = readmeCreator.render data
+readme = readmeCreator.write content
+readme.catch (err) -&gt;
+  throw err
+  process.exitCode = 1
+</code></pre>
+<pre><code class="lang-sh">readme-creator --encoding utf-8 --add-description &quot;&quot; --addUsage &quot;&quot; \
+  --modules CommonJS --no-npmcdn --license-file LICENSE.txt \
+  --badges npm-version,travis,coveralls,dependencies,devDependencies,gitter \
+  --branch master \
+  README.md
+</code></pre>
+<h2 id="installation">Installation</h2><p>Download node at <a href="http://nodejs.org">nodejs.org</a> and install it, if you haven&#39;t already.</p><pre><code class="lang-sh">npm install create-readme --save
 </code></pre><p>This package is provided in these module formats:</p><ul>
 <li>CommonJS</li>
-</ul><p>The module is available via <a href="https://npmcdn.com/">npmcdn</a> at
-<a href="https://npmcdn.com/readme-creator">https://npmcdn.com/readme-creator</a></p><h2 id="dependencies">Dependencies</h2><p>None</p><h2 id="dev-dependencies">Dev Dependencies</h2>
+</ul>
+<h2 id="documentation">Documentation</h2><p>You can find a documentation <a href="https://rawgit.com/dbartholomae/create-readme/master/doc/index.html">here</a>.</p><h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="https://github.com/petkaantonov/bluebird">bluebird</a>: Full featured Promises/A+ implementation with exceptionally good performance</li>
+<li><a href="https://github.com/tj/commander.js">commander</a>: the complete solution for node.js command-line programs</li>
+<li><a href="https://github.com/zeke/github-url-to-object">github-url-to-object</a>: Extract user, repo, and other interesting properties from GitHub URLs</li>
+<li><a href="https://github.com/janl/mustache.js">mustache</a>: Logic-less {{mustache}} templates with JavaScript</li>
+<li><a href="https://github.com/felixge/node-require-all">require-all</a>: An easy way to require all files within a directory.</li>
+<li><a href="https://github.com/winstonjs/winston">winston</a>: A multi-transport async logging library for Node.js</li>
+</ul>
+<h2 id="dev-dependencies">Dev Dependencies</h2>
 <ul>
 <li><a href="https://github.com/Deathspike/npm-build-tools">npm-build-tools</a>: Cross-platform command-line tools to help use npm as a build tool.</li>
+<li><a href="https://github.com/remy/nodemon">nodemon</a>: Simple monitor script for use during development of a node.js app.</li>
+<li><a href="https://github.com/gtramontina/ghooks">ghooks</a>: Simple git hooks</li>
+<li><a href="https://github.com/kentcdodds/validate-commit-msg">validate-commit-msg</a>: Script to validate a commit message follows the conventional changelog standard</li>
+<li><a href="https://github.com/semantic-release/semantic-release">semantic-release</a>: automated semver compliant package publishing</li>
+<li><a href="https://github.com/nickmerwin/node-coveralls">coveralls</a>: takes json-cov output into stdin and POSTs to coveralls.io</li>
+<li><a href="https://github.com/WappForge/lint-coffee-strict">lint-coffee-strict</a>: coffeelint preconfigured with WappForge style guide</li>
+<li><a href="https://github.com/nodesecurity/nsp">nsp</a>: The Node Security (nodesecurity.io) command line interface</li>
+<li><a href="https://github.com/jashkenas/coffeescript">coffee-script</a>: Unfancy JavaScript</li>
+<li><a href="https://github.com/dbartholomae/test-coffee-module">test-coffee-module</a>: run tests on .coffee files with sensible defaults</li>
+<li><a href="https://github.com/coffeedoc/codo">codo</a>: A CoffeeScript documentation generator.</li>
 </ul>
 <h2 id="license">License</h2><p><a href="LICENSE.txt">MIT</a></p>
       </div>
