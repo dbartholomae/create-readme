@@ -1,5 +1,5 @@
 # create-readme@1.0.0
- [![npm version(https://badge.fury.io/js/create-readme.svg)](https://npmjs.org/package/create-readme)  [![build status(https://travis-ci.org/dbartholomae/create-readme.svg))](https://travis-ci.org/dbartholomae/create-readme)  [![coverage status(https://coveralls.io/repos/dbartholomae/create-readme/badge.svg)](https://coveralls.io/github/dbartholomae/create-readme)  [![dependency status(https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io)](https://david-dm.org/dbartholomae/create-readme)  [![devDependency status(https://david-dm.org/dbartholomae/create-readme/dev-status.svg)](https://david-dm.org/dbartholomae/create-readme#info=devDependencies)  [![Gitter(https://badges.gitter.im/dbartholomae/create-readme.svg)](https://gitter.im/dbartholomae/create-readme) 
+ [![npm version](https://badge.fury.io/js/create-readme.svg)](https://npmjs.org/package/create-readme)  [![build status](https://travis-ci.org/dbartholomae/create-readme.svg))](https://travis-ci.org/dbartholomae/create-readme)  [![coverage status](https://coveralls.io/repos/dbartholomae/create-readme/badge.svg)](https://coveralls.io/github/dbartholomae/create-readme)  [![dependency status](https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io)](https://david-dm.org/dbartholomae/create-readme)  [![devDependency status](https://david-dm.org/dbartholomae/create-readme/dev-status.svg)](https://david-dm.org/dbartholomae/create-readme#info=devDependencies)  [![Gitter](https://badges.gitter.im/dbartholomae/create-readme.svg)](https://gitter.im/dbartholomae/create-readme) 
 
 Automatically creates README.md based on package.json and other existing files.
 
@@ -59,8 +59,7 @@ This package is provided in these module formats:
 
 - CommonJS
 
-The module is available via [npmcdn](https://npmcdn.com/) at
-[https://npmcdn.com/create-readme](https://npmcdn.com/create-readme)
+
 
 ## Documentation
 
@@ -83,13 +82,11 @@ You can find a documentation [here](https://rawgit.com/dbartholomae/create-readm
 - [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
 - [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
 - [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
-- [conventional-changelog](https://github.com/ajoslin/conventional-changelog): Generate a changelog from git metadata
-- [write-version-to-package-json](https://github.com/dbartholomae/write-version-to-package-json): Loads the current version from the npm registry and writes it to package.json
 - [coveralls](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
-- [lint-coffee](): 
+- [lint-coffee-strict](https://github.com/WappForge/lint-coffee): coffeelint preconfigured with WappForge style guide
 - [nsp](https://github.com/nodesecurity/nsp): The Node Security (nodesecurity.io) command line interface
 - [coffee-script](https://github.com/jashkenas/coffeescript): Unfancy JavaScript
-- [test-server-module](): 
+- [test-coffee-module](https://github.com/dbartholomae/test-coffee-module): run tests on .coffee files with sensible defaults
 - [codo](https://github.com/coffeedoc/codo): A CoffeeScript documentation generator.
 
 

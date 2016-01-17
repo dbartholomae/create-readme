@@ -1,5 +1,6 @@
 {
   "name": "create-readme",
+  "version": "1.0.0",
   "description": "Automatically creates README.md based on package.json and other existing files.",
   "bin": "bin/create-readme.js",
   "main": "lib/main.js",
@@ -22,6 +23,7 @@
     }
   },
   "scripts": {
+    "create-readme": "node bin/create-readme",
     "build": "n-clean lib && coffee -c -o lib/ src/",
     "document": "codo src --min-coverage 100",
     "document:check": "codo src -t --min-coverage 100",
