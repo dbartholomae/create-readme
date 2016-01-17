@@ -83,7 +83,7 @@ You can find a documentation [here](https://rawgit.com/dbartholomae/create-readm
 - [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
 - [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
 - [coveralls](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
-- [lint-coffee-strict](https://github.com/WappForge/lint-coffee): coffeelint preconfigured with WappForge style guide
+- [lint-coffee-strict](https://github.com/WappForge/lint-coffee-strict): coffeelint preconfigured with WappForge style guide
 - [nsp](https://github.com/nodesecurity/nsp): The Node Security (nodesecurity.io) command line interface
 - [coffee-script](https://github.com/jashkenas/coffeescript): Unfancy JavaScript
 - [test-coffee-module](https://github.com/dbartholomae/test-coffee-module): run tests on .coffee files with sensible defaults
