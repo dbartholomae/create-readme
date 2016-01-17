@@ -1,4 +1,4 @@
-winston = require 'winston'
+logger = require '../logger'
 Promise = require 'bluebird'
 
 # Parses package.json information
@@ -14,7 +14,7 @@ module.exports = class PkgParser
   # @param pkg [Object] package.json data
   # @returns [Promise<Object>] The relevant subset of pkg
   run: (pkg) ->
-    winston.info "Parsing pkg"
+    logger.info "Parsing pkg"
     return Promise.resolve
       name: pkg.name
       version: pkg.version

@@ -1,4 +1,4 @@
-winston = require 'winston'
+logger = require '../logger'
 Promise = require 'bluebird'
 fs = Promise.promisifyAll require 'fs'
 path = require 'path'
@@ -29,20 +29,21 @@ module.exports = class DocsParser
   # @param pkg [Object] package.json data
   # @returns [Promise<Object>] Documentation information [string]
   run: (pkg) ->
-    winston.info "Creating documentation info"
+    logger.info "Creating documentation info"
     unless pkg.git?
-      winston.debug " Not adding documentation due to missing git repo info"
+      logger.debug " Not adding documentation due to missing git repo info"
       return Promise.resolve null
     docDir = pkg.directories?.doc ? './doc/'
     docFile = path.join docDir, @options.docFile
 
-    winston.debug " Looking for doc file at " + docFile
+    logger.debug " Looking for doc file at " + docFile
     fs.statAsync docFile
     .then (stats) ->
       if stats.isFile()
-        winston.debug " File found, adding rawgit link"
-        return "https://rawgit.com/" + pkg.git.user + "/" + pkg.git.repo + "/" +
-                        pkg.git.branch + "/" + docFile.split(path.sep).join "/"
+        rawgitLink = "https://rawgit.com/" + pkg.git.user + "/" + pkg.git.repo + "/" +
+                pkg.git.branch + "/" + docFile.split(path.sep).join "/"
+        logger.debug " File found, adding rawgit link " + rawgitLink
+        return rawgitLink
       else
         return null
     .catch { code: 'ENOENT' }, -> null

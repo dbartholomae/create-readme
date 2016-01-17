@@ -1,6 +1,7 @@
 Promise = require 'bluebird'
 fs = Promise.promisifyAll require 'fs'
 path = require 'path'
+logger = require './logger'
 
 # Loads the template file
 module.exports = class TemplateLoader
@@ -19,4 +20,6 @@ module.exports = class TemplateLoader
 
   # Load template
   loadTemplate: ->
+    logger.info "Loading template"
+    logger.debug " Loading template from " + @options.templateFile
     fs.readFileAsync @options.templateFile, { encoding: @options.encoding }

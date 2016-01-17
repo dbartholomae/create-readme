@@ -1,4 +1,4 @@
-winston = require 'winston'
+logger = require '../logger'
 Promise = require 'bluebird'
 fs = Promise.promisifyAll require 'fs'
 path = require 'path'
@@ -30,20 +30,20 @@ module.exports = class UsageParser
   # @param pkg [Object] package.json data
   # @returns [Promise<Object>] Usage information [{name: string, file: string}]
   run: (pkg) ->
-    winston.info "Creating usage examples"
+    logger.info "Creating usage examples"
     exampleDir = pkg.directories?.example ? @options.exampleDir
     exampleDir = path.join(process.cwd(), exampleDir)
-    winston.debug " Looking for examples in dir " + exampleDir
+    logger.debug " Looking for examples in dir " + exampleDir
     fs.readdirAsync exampleDir
     .catch { code: 'ENOENT' }, -> []
     .filter (file) ->
       Object.keys(languages).indexOf(path.extname(file)) > -1
     .map (file) =>
-      winston.debug " Parsing file" + file
+      logger.debug " Parsing file" + file
       content = fs.readFileAsync path.join(exampleDir, file), { encoding: @options.encoding }
       .then (content) =>
         return content unless @options.replaceReferences
-        winston.debug " Replacing occurances of '../' and \"../\" with " + pkg.name
+        logger.debug " Replacing occurances of '../' and \"../\" with " + pkg.name
         # Replace occurences of '../' and "../" with 'my-package-name'
         regex = /(?:'\.\.\/')|(?:"\.\.\/")/g
         content.replace regex, "'" + pkg.name + "'"
@@ -53,7 +53,7 @@ module.exports = class UsageParser
       .props()
     .then (examples) =>
       if examples.length is @options.addUsage.length is 0
-        winston.debug " No examples and no addUsage"
+        logger.debug " No examples and no addUsage"
         return null
       else return {
         examples: examples

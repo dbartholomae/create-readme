@@ -1,5 +1,5 @@
 Promise = require 'bluebird'
-winston = require 'winston'
+logger = require './logger'
 fs = require 'fs'
 path = require 'path'
 githubUrl2Obj = require 'github-url-to-object'
@@ -15,12 +15,16 @@ module.exports = class PackageJSONReader
   # @option options fieldsNeeded [Array<String>] Fields required from packages.json
   constructor: (@options) ->
     @options ?= {}
+    @options.encoding ?= 'utf-8'
     @options.fieldsNeeded ?= ['name', 'version', 'description']
 
   # Reads package.json
   # @returns [Object] The parsed data from package.json
   read: ->
-    pkg = require path.join(process.cwd(), 'package.json')
+    pkgPath = path.join(process.cwd(), 'package.json')
+    logger.debug "Reading package.json from " + pkgPath
+    pkg = JSON.parse fs.readFileSync(pkgPath, { encoding: @options.encoding })
+
     # Check if all required fields are filled in
     for fieldName in @options.fieldsNeeded
       unless pkg[fieldName]?
@@ -32,7 +36,7 @@ module.exports = class PackageJSONReader
         pkg.git = githubUrl2Obj(pkg.repository.url)
         unless pkg.git.user?.length > 0 and pkg.git.repo?.length > 0
           pkg.git = undefined
-          winston.warn 'No git repository defined'
+          logger.warn 'No git repository defined'
       catch
         throw new Error 'package.json repository.url cannot be parsed'
 

@@ -1,4 +1,4 @@
-winston = require 'winston'
+logger = require '../logger'
 Promise = require 'bluebird'
 fs = Promise.promisifyAll require 'fs'
 
@@ -21,16 +21,16 @@ module.exports = class LicenseParser
   # @param pkg [Object] package.json data
   # @returns [Promise<Object>] License information {name: string, file: string}
   run: (pkg) ->
-    winston.info "Creating license info"
+    logger.info "Creating license info"
     return Promise.resolve null unless pkg.license
 
-    winston.debug " Reading license file from " + @options.licenseFile
+    logger.debug " Reading license file from " + @options.licenseFile
     file = fs.readFileAsync @options.licenseFile, { encoding: @options.encoding }
     .then =>
-      winston.debug "License file #{@options.licenseFile} found"
+      logger.debug "License file #{@options.licenseFile} found"
       return @options.licenseFile
     .catch { code: 'ENOENT' }, ->
-      winston.debug "No license file found"
+      logger.debug "No license file found"
       return ""
 
     return Promise.resolve

@@ -1,4 +1,4 @@
-winston = require 'winston'
+logger = require '../logger'
 Promise = require 'bluebird'
 path = require 'path'
 githubUrl2Obj = require 'github-url-to-object'
@@ -19,10 +19,10 @@ module.exports = class DependencyParser
   # @returns [String] An object withthe github repo url or null { name: string, url: string }
   getDepData = (dep) ->
     pkgPath = path.join process.cwd(), "node_modules", dep, "package.json"
-    winston.debug " Reading " + pkgPath
+    logger.debug " Reading " + pkgPath
     pkg = require pkgPath
     if pkg.repository?.url and githubUrl2Obj(pkg.repository.url)
-      winston.debug " Adding dependency " + dep
+      logger.debug " Adding dependency " + dep
       return {
         name: dep
         # coffeelint: disable=camel_case_vars
@@ -37,8 +37,10 @@ module.exports = class DependencyParser
   # @param pkg [Object] package.json data
   # @returns [Promise<String>] The description
   run: (pkg) ->
-    winston.info "Parsing dependencies"
+    logger.info "Parsing dependencies"
 
+    logger.debug " Loading dependencies: " + Object.keys pkg.dependencies
+    logger.debug " Loading devDependencies: " + Object.keys pkg.devDependencies
     Promise.resolve
       dep: Object.keys(pkg.dependencies).map getDepData
       dev: Object.keys(pkg.devDependencies).map getDepData

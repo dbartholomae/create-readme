@@ -1,5 +1,4 @@
-Promise = require 'bluebird'
-winston = require 'winston'
+logger = require './logger'
 
 # Sets options based on command line arguments, pkg.config.readme, and defaults
 module.exports = class OptionsParser
@@ -11,24 +10,24 @@ module.exports = class OptionsParser
   # @param (options) [Object] An object with options to overwrite defaults
   # @returns [Object] The options
   parse: (pkg, options) ->
-    winston.info "Parsing options"
+    logger.info "Parsing options"
     options ?= {}
 
     if pkg.config?.readme?
-      winston.debug "------------------------------------------------"
-      winston.debug "Options read from package.json config"
+      logger.silly "------------------------------------------------"
+      logger.silly "Options read from package.json config"
       for own key, val of pkg.config.readme when not options[key]?
-        winston.debug key + ": " + val
+        logger.silly key + ": " + val
         options[key] = val
-      winston.debug "------------------------------------------------"
+      logger.silly "------------------------------------------------"
 
     options.git = pkg.git
 
     options.filename ?= './README.md'
 
-    winston.debug "------------------------------------------------"
-    winston.debug "General options:"
-    winston.debug JSON.stringify options, null, 2
-    winston.debug "------------------------------------------------"
+    logger.silly "------------------------------------------------"
+    logger.silly "General options:"
+    logger.silly JSON.stringify options, null, 2
+    logger.silly "------------------------------------------------"
 
     return options

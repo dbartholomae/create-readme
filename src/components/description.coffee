@@ -1,4 +1,4 @@
-winston = require 'winston'
+logger = require '../logger'
 Promise = require 'bluebird'
 os = require 'os'
 
@@ -24,10 +24,10 @@ module.exports = class DescriptionParser
   # @param pkg [Object] package.json data
   # @returns [Promise<String>] The description
   run: (pkg) ->
-    winston.info "Creating description"
+    logger.info "Creating description"
     if @options.addDesc.length > 0
-      winston.debug " Adding additional description"
+      logger.debug " Adding additional description"
       return Promise.resolve pkg.description + os.EOL + os.EOL + @options.addDesc
     else
-      winston.debug " Not adding additional description"
+      logger.debug " Not adding additional description"
       return Promise.resolve pkg.description

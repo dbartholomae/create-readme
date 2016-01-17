@@ -1,4 +1,4 @@
-winston = require 'winston'
+logger = require '../logger'
 Promise = require 'bluebird'
 mustache = require 'mustache'
 badgeData = require '../../data/badges.json'
@@ -25,11 +25,11 @@ module.exports = class BadgeParser
   # @param pkg [Object] package.json data
   # @returns [Promise<Array>] An array of badges {name: string, img: string, url: string}
   run: (pkg) ->
-    winston.info "Creating badges"
+    logger.info "Creating badges"
     unless pkg.git?
-      winston.debug " Not adding badges due to missing git repo info"
+      logger.debug " Not adding badges due to missing git repo info"
       return Promise.resolve []
-    winston.debug " Adding badges " + @options.badges
+    logger.debug " Adding badges " + @options.badges
 
     return Promise.resolve @options.badges.map (badgeName) ->
       name: mustache.render badgeData[badgeName].name, pkg

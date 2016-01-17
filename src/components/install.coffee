@@ -1,4 +1,4 @@
-winston = require 'winston'
+logger = require '../logger'
 Promise = require 'bluebird'
 
 # Creates a installation informatin
@@ -18,10 +18,10 @@ module.exports = class InstallParser
   # @param pkg [Object] package.json data
   # @returns [Promise<String>] Install info { modules: names: [string], npmcdn: boolean }
   run: (pkg) ->
-    winston.info "Creating installation info"
-    winston.debug " Adding modules " + @options.modules
+    logger.info "Creating installation info"
+    logger.debug " Adding modules " + @options.modules
     if @options.npmcdn
-      winston.debug " Adding npmcdn"
+      logger.debug " Adding npmcdn"
     Promise.resolve
       modules:
         names: @options.modules.map (module) -> name: module
