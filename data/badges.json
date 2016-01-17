@@ -1,0 +1,32 @@
+{
+  "npm-version": {
+    "name": "npm version",
+    "img": "https://badge.fury.io/js/{{name}}.svg",
+    "url": "https://npmjs.org/package/{{name}}"
+  },
+  "travis": {
+    "name": "build status",
+    "img": "https://travis-ci.org/{{git.user}}/{{git.repo}}.svg)",
+    "url": "https://travis-ci.org/{{git.user}}/{{git.repo}}"
+  },
+  "coveralls": {
+    "name": "coverage status",
+    "img": "https://coveralls.io/repos/{{git.user}}/{{git.repo}}/badge.svg",
+    "url": "https://coveralls.io/github/{{git.user}}/{{git.repo}}"
+  },
+  "dependencies": {
+    "name": "dependency status",
+    "img": "https://david-dm.org/{{git.user}}/{{git.repo}}.svg?theme=shields.io",
+    "url": "https://david-dm.org/{{git.user}}/{{git.repo}}"
+  },
+  "devDependencies": {
+    "name": "devDependency status",
+    "img": "https://david-dm.org/{{git.user}}/{{git.repo}}/dev-status.svg",
+    "url": "https://david-dm.org/{{git.user}}/{{git.repo}}#info=devDependencies"
+  },
+  "gitter": {
+    "name": "Gitter",
+    "img": "https://badges.gitter.im/{{git.user}}/{{git.repo}}.svg",
+    "url": "https://gitter.im/{{git.user}}/{{git.repo}}"
+  }
+}
