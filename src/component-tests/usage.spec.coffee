@@ -1,46 +1,48 @@
-proxyquire = require 'proxyquire'
 mockFs = require 'mock-fs'
+UsageParser = require '../components/usage.coffee',
 
 describe "A UsageParser", ->
   pkg = null
+
   beforeEach ->
     pkg = require '../../package.json'
     pkg.git =
       user: "dbartholomae"
-      repo: "readme-creator"
+      repo: "create-readme"
       branch: "master"
 
+  afterEach ->
+    mockFs.restore()
+
   it "returns examples parsed correctly from all files in the examples directory", ->
-    UsageParser = proxyquire '../components/usage.coffee',
-      fs: mockFs.fs
-        'examples/example.js': 'require("../");'
-        'examples/example.coffee': "require '../'"
-        'examples/example.sh': "readme-creator -s"
+    mockFs
+      'examples/example.js': 'require("../");'
+      'examples/example.coffee': "require '../'"
+      'examples/example.sh': "create-readme -s"
 
     usageParser = new UsageParser()
     expect(usageParser.run pkg).to.eventually.deep.equal
       examples: [
         {
           lang: 'coffeescript'
-          content: "require 'readme-creator'"
+          content: "require 'create-readme'"
         }
         {
           lang: 'javascript'
-          content: "require('readme-creator');"
+          content: "require('create-readme');"
         }
         {
           lang: 'sh'
-          content: 'readme-creator -s'
+          content: 'create-readme -s'
         }
       ]
       description: ''
 
   it "accepts additional usage text", ->
-    UsageParser = proxyquire '../components/usage.coffee',
-      fs: mockFs.fs
-        'examples/example.js': 'require("../");'
-        'examples/example.coffee': "require '../'"
-        'examples/example.sh': "readme-creator -s"
+    mockFs
+      'examples/example.js': 'require("../");'
+      'examples/example.coffee': "require '../'"
+      'examples/example.sh': "create-readme -s"
 
     usageParser = new UsageParser
       addUsage: 'This should be useful'
@@ -48,26 +50,25 @@ describe "A UsageParser", ->
       examples: [
         {
           lang: 'coffeescript'
-          content: "require 'readme-creator'"
+          content: "require 'create-readme'"
         }
         {
           lang: 'javascript'
-          content: "require('readme-creator');"
+          content: "require('create-readme');"
         }
         {
           lang: 'sh'
-          content: 'readme-creator -s'
+          content: 'create-readme -s'
         }
       ]
       description: 'This should be useful'
 
   it "looks in the correct directory", ->
     pkg.directories.example = 'ex'
-    UsageParser = proxyquire '../components/usage.coffee',
-      fs: mockFs.fs
-        'ex/example.js': 'require("../");'
-        'ex/example.coffee': "require '../'"
-        'ex/example.sh': "readme-creator -s"
+    mockFs
+      'ex/example.js': 'require("../");'
+      'ex/example.coffee': "require '../'"
+      'ex/example.sh': "create-readme -s"
 
     usageParser = new UsageParser
       addUsage: 'This should be useful'
@@ -75,26 +76,25 @@ describe "A UsageParser", ->
       examples: [
         {
           lang: 'coffeescript'
-          content: "require 'readme-creator'"
+          content: "require 'create-readme'"
         }
         {
           lang: 'javascript'
-          content: "require('readme-creator');"
+          content: "require('create-readme');"
         }
         {
           lang: 'sh'
-          content: 'readme-creator -s'
+          content: 'create-readme -s'
         }
       ]
       description: 'This should be useful'
 
   it "allows to disable replacements", ->
     pkg.directories.example = 'ex'
-    UsageParser = proxyquire '../components/usage.coffee',
-      fs: mockFs.fs
-        'ex/example.js': 'require("../");'
-        'ex/example.coffee': "require '../'"
-        'ex/example.sh': "readme-creator -s"
+    mockFs
+      'ex/example.js': 'require("../");'
+      'ex/example.coffee': "require '../'"
+      'ex/example.sh': "create-readme -s"
 
     usageParser = new UsageParser
       replaceReferences: false
@@ -110,14 +110,13 @@ describe "A UsageParser", ->
         }
         {
           lang: 'sh'
-          content: 'readme-creator -s'
+          content: 'create-readme -s'
         }
       ]
       description: ''
 
   it "returns null if there are neither examples nor added usage text", ->
-    UsageParser = proxyquire '../components/usage.coffee',
-      fs: mockFs.fs()
+    mockFs()
 
     usageParser = new UsageParser()
     expect(usageParser.run pkg).to.eventually.equal null

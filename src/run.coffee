@@ -2,7 +2,7 @@ program = require 'commander'
 Promise = require 'bluebird'
 fs = Promise.promisifyAll require 'fs'
 mustache = require 'mustache'
-winston = require 'winston'
+logger = require './logger'
 requireAll = require 'require-all'
 path = require 'path'
 
@@ -18,18 +18,17 @@ module.exports = class ReadmeCreator
   # @option options debug [Boolean] Write useful debug messages to stdout
   constructor: (options) ->
     if options.silent
-      winston.level = 'silent'
+      logger.level 'silent'
 
     if options.debug
-      winston.level = 'debug'
-
+      logger.level 'debug'
       if options.silent
-        winston.warn "Tried to set both silent and debug flag"
+        logger.warn "Tried to set both silent and debug flag"
 
-    winston.debug "------------------------------------------------"
-    winston.debug "Module invoked with options"
-    winston.debug JSON.stringify options, null, 2
-    winston.debug "------------------------------------------------"
+    logger.silly "------------------------------------------------"
+    logger.silly "Module invoked with options"
+    logger.silly JSON.stringify options, null, 2
+    logger.silly "------------------------------------------------"
 
     @pkg = new PackageJSONReader().read()
     @options = new OptionsParser().parse @pkg, options
@@ -42,29 +41,31 @@ module.exports = class ReadmeCreator
       filter: /(.*)\.(?:coffee|js)/ # .coffee and .js files
       resolve: (Component) =>
         new Component(@options).run @pkg
-        .tap -> winston.debug Component.name + " done"
+        .tap -> logger.debug Component.name + " done"
 
   # Render the content to the README file template
   # @param content [Object] An object with the data needed for the template
   # @returns [Promise<String>] The rendered template
   render: (content) ->
+    logger.debug "Starting render"
     template = new TemplateLoader(@options).loadTemplate()
     Promise.join template, content, (template, content) ->
-      winston.debug "---------------------------------"
-      winston.debug "Data used for rendering:"
-      winston.debug JSON.stringify content, null, 2
-      winston.debug "---------------------------------"
+      logger.silly "---------------------------------"
+      logger.silly "Data used for rendering:"
+      logger.silly JSON.stringify content, null, 2
+      logger.silly "---------------------------------"
       return mustache.render(template, content)
 
   # Write the given content to the README file
   # @param content [String] The content to write
   # @return [Promise] A promise that resolves when the writing was successful
   write: (content) ->
+    logger.debug "Starting write"
     content.then (content) =>
-      winston.debug "---------------------------------"
-      winston.debug "Wrote to file:"
-      winston.debug content
-      winston.debug "---------------------------------"
+      logger.silly "---------------------------------"
+      logger.silly "Wrote to file:"
+      logger.silly content
+      logger.silly "---------------------------------"
       fs.writeFileAsync @options.filename, content
 
   # Run the script
@@ -115,7 +116,7 @@ module.exports = class ReadmeCreator
     program.filename = program.args?[0]
 
     if program.enableReplaceReferences and program.disableReplaceReferences
-      winston.warn 'Set both --enable-replace-references as well as ' +
+      logger.warn 'Set both --enable-replace-references as well as ' +
                       '--disable-replace-refrences'
     program.replaceReferences ?= if program.noReplaceReferences? then false else null
 
