@@ -140,11 +140,8 @@
 
 }).call(this);
 /*
-
 Syntax highlighting with language autodetection.
-
 http://softwaremaniacs.org/soft/highlight/
-
 */
 
 var hljs = new function() {
@@ -788,18 +785,11 @@ var hljs = new function() {
 
 
 
-
-
 /*
-
 Language: CoffeeScript
-
 Author: Dmytrii Nagirniak <dnagir@gmail.com>
-
 Contributors: Oleg Efimov <efimovov@gmail.com>
-
 Description: CoffeeScript is a programming language that transcompiles to JavaScript. For info about language see http://coffeescript.org/
-
 */
 
 hljs.LANGUAGES.coffeescript = function() {
@@ -909,29 +899,17 @@ hljs.LANGUAGES.coffeescript = function() {
 }();
 
 /*!
-
  * jQuery JavaScript Library v1.8.1
-
  * http://jquery.com/
-
  *
-
  * Includes Sizzle.js
-
  * http://sizzlejs.com/
-
  *
-
  * Copyright 2012 jQuery Foundation and other contributors
-
  * Released under the MIT license
-
  * http://jquery.org/license
-
  *
-
  * Date: Thu Aug 30 2012 17:17:22 GMT-0400 (Eastern Daylight Time)
-
  */
 (function( window, undefined ) {
 var
@@ -10223,9 +10201,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 })( window );
 
 //     keymaster.js
-
 //     (c) 2011 Thomas Fuchs
-
 //     keymaster.js may be freely distributed under the MIT license.
 
 ;(function(global){
@@ -10410,17 +10386,11 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 })(this);
 
 //     Underscore.js 1.3.3
-
 //     (c) 2009-2012 Jeremy Ashkenas, DocumentCloud Inc.
-
 //     Underscore is freely distributable under the MIT license.
-
 //     Portions of Underscore are inspired or borrowed from Prototype,
-
 //     Oliver Steele's Functional, and John Resig's Micro-Templating.
-
 //     For all details and documentation:
-
 //     http://documentcloud.github.com/underscore
 
 (function() {
@@ -11752,6 +11722,29 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
         return $('#fuzzySearch').height(45);
       }
     });
+  });
+
+}).call(this);
+(function() {
+  $(function() {
+    var parser, starter;
+    if ($('frameset').length > 0) {
+      parser = document.createElement('a');
+      parser.href = location.href;
+      starter = parser.hash.substr(1);
+      if (starter.length > 0) {
+        $('#content')[0].contentWindow.location.href = starter;
+      }
+      return $('#content').load(function() {
+        var hash;
+        hash = encodeURI(this.contentWindow.location.href);
+        if (history.pushState) {
+          return history.replaceState(null, document.title, '#' + hash);
+        } else {
+          return location.hash = hash;
+        }
+      });
+    }
   });
 
 }).call(this);

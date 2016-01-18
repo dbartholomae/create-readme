@@ -74,6 +74,6 @@
     "nsp": "*",
     "coffee-script": "*",
     "test-coffee-module": "1.0.0",
-    "codo": "git://github.com/dbartholomae/codo.git"
+    "codo": "2.1.0"
   }
 }
