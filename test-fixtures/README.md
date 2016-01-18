@@ -1,0 +1,96 @@
+# create-readme@1.0.0
+ [![npm version](https://badge.fury.io/js/create-readme.svg)](https://npmjs.org/package/create-readme)  [![build status](https://travis-ci.org/dbartholomae/create-readme.svg))](https://travis-ci.org/dbartholomae/create-readme)  [![coverage status](https://coveralls.io/repos/dbartholomae/create-readme/badge.svg)](https://coveralls.io/github/dbartholomae/create-readme)  [![dependency status](https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io)](https://david-dm.org/dbartholomae/create-readme)  [![devDependency status](https://david-dm.org/dbartholomae/create-readme/dev-status.svg)](https://david-dm.org/dbartholomae/create-readme#info=devDependencies)  [![Gitter](https://badges.gitter.im/dbartholomae/create-readme.svg)](https://gitter.im/dbartholomae/create-readme) 
+
+Automatically creates README.md based on package.json and other existing files.
+
+This package was heavily inspired by [package-json-to-readme](https://github.com/zeke/package-json-to-readme/). It makes use of [http://rawgit.com/](http://rawgit.com/) to serve the documentation and of [http://npmcdn.com/](http://npmcdn.com/) to serve the module. Both are only suitable for small projects.
+
+## Usage
+
+Configuration options can also be set in package.json's config.readme.
+
+```coffeescript
+# API use
+
+# Default options, explained in documentation
+options = {
+  debug: false
+  silent: false
+  encoding: 'utf-8'
+  addDescription: ''
+  addUsage: ''
+  modules: ['CommonJS']
+  npmcdn: false
+  licenseFile: 'LICENSE.txt'
+  badges: ['npm-version', 'travis', 'coveralls', 'dependencies', 'devDependencies', 'gitter']
+  branch: 'master'
+  replaceModuleReferences: true
+  filename: 'README.md'
+}
+
+ReadmeCreator = require 'create-readme'
+readmeCreator = new ReadmeCreator(options)
+data = readmeCreator.parse()
+content = readmeCreator.render data
+readme = readmeCreator.write content
+readme.catch (err) ->
+  throw err
+  process.exitCode = 1
+
+```
+
+```sh
+readme-creator --encoding utf-8 --add-description "" --addUsage "" \
+  --modules CommonJS --no-npmcdn --license-file LICENSE.txt \
+  --badges npm-version,travis,coveralls,dependencies,devDependencies,gitter \
+  --branch master \
+  README.md
+```
+
+
+## Installation
+Download node at [nodejs.org](http://nodejs.org) and install it, if you haven't already.
+
+```sh
+npm install create-readme --save
+```
+
+This package is provided in these module formats:
+
+- CommonJS
+
+
+
+## Documentation
+
+You can find a documentation [here](https://rawgit.com/dbartholomae/create-readme/master/doc/index.html).
+
+## Dependencies
+
+- [bluebird](https://github.com/petkaantonov/bluebird): Full featured Promises/A+ implementation with exceptionally good performance
+- [commander](https://github.com/tj/commander.js): the complete solution for node.js command-line programs
+- [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
+- [mustache](https://github.com/janl/mustache.js): Logic-less {{mustache}} templates with JavaScript
+- [require-all](https://github.com/felixge/node-require-all): An easy way to require all files within a directory.
+- [winston](https://github.com/winstonjs/winston): A multi-transport async logging library for Node.js
+
+
+## Dev Dependencies
+
+- [npm-build-tools](https://github.com/Deathspike/npm-build-tools): Cross-platform command-line tools to help use npm as a build tool.
+- [nodemon](https://github.com/remy/nodemon): Simple monitor script for use during development of a node.js app.
+- [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
+- [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
+- [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
+- [coveralls](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
+- [proxyquire](https://github.com/thlorenz/proxyquire): Proxies nodejs require in order to allow overriding dependencies during testing.
+- [mock-fs](https://github.com/tschaub/mock-fs): A configurable mock file system.  You know, for testing.
+- [lint-coffee-strict](https://github.com/WappForge/lint-coffee-strict): coffeelint preconfigured with WappForge style guide
+- [nsp](https://github.com/nodesecurity/nsp): The Node Security (nodesecurity.io) command line interface
+- [coffee-script](https://github.com/jashkenas/coffeescript): Unfancy JavaScript
+- [test-coffee-module](https://github.com/dbartholomae/test-coffee-module): run tests on .coffee files with sensible defaults
+- [codo](https://github.com/coffeedoc/codo): A CoffeeScript documentation generator.
+
+
+## License
+[MIT](LICENSE.txt)
