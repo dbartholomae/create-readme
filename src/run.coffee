@@ -18,10 +18,10 @@ module.exports = class ReadmeCreator
   # @option options debug [Boolean] Write useful debug messages to stdout
   constructor: (options) ->
     if options.silent
-      logger.level 'silent'
+      logger.level = 'silent'
 
     if options.debug
-      logger.level 'debug'
+      logger.level = 'debug'
       if options.silent
         logger.warn "Tried to set both silent and debug flag"
 
