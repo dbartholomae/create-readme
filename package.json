@@ -26,7 +26,7 @@
     "create-readme": "node bin/create-readme",
     "build": "n-clean lib && coffee -c -o lib/ src/",
     "document": "codo src --min-coverage 100",
-    "document:check": "codo src -t --min-coverage 100",
+    "document:check": "codo src --test --min-coverage 100",
     "document:commit": "npm run document:try-commit || echo \"No changes committed\"",
     "document:try-commit": "git add doc/ && git commit doc/ -n -m \"docs: update documentation\"",
     "test": "lint-coffee-strict src examples && test-coffee-module -c && npm run document:check && nsp check",
