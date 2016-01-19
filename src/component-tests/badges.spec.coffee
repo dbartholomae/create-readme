@@ -8,6 +8,7 @@ describe "A BadgeParser", ->
       user: "dbartholomae"
       repo: "readme-creator"
       branch: "master"
+
   it "should return an empty list if git is not set in pkg", ->
     pkg.git = null
     badgeParser = new BadgeParser()
@@ -19,6 +20,6 @@ describe "A BadgeParser", ->
     )
     expect(badgeParser.run pkg).to.eventually.deep.equal [{
       name: "build status"
-      "img": "https://travis-ci.org/dbartholomae/readme-creator.svg)"
+      "img": "https://travis-ci.org/dbartholomae/readme-creator.svg"
       "url": "https://travis-ci.org/dbartholomae/readme-creator"
     }]

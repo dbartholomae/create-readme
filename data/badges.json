@@ -6,7 +6,7 @@
   },
   "travis": {
     "name": "build status",
-    "img": "https://travis-ci.org/{{git.user}}/{{git.repo}}.svg)",
+    "img": "https://travis-ci.org/{{git.user}}/{{git.repo}}.svg",
     "url": "https://travis-ci.org/{{git.user}}/{{git.repo}}"
   },
   "coveralls": {
