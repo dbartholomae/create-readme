@@ -29,7 +29,7 @@
     "document:check": "codo src --test --min-coverage 100",
     "document:commit": "npm run document:try-commit || echo \"No changes committed\"",
     "document:try-commit": "git add doc/ && git commit doc/ -n -m \"docs: update documentation\"",
-    "test": "lint-coffee-strict src examples && test-coffee-module -c && npm run document:check && nsp check",
+    "test": "test-coffee-module -c && npm run document:check && nsp check",
     "test:light": "test-coffee-module && lint-coffee-strict src examples && npm run document",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "coveralls": "cat coverage/lcov/coverage.txt | coveralls"
