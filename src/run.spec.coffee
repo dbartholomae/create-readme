@@ -1,6 +1,6 @@
 Promise = require 'bluebird'
 fs = require 'fs'
-pkg = require '../package.json'
+pkg = require '../test-fixtures/package.json'
 
 describe 'A ReadmeCreator', ->
   it 'creates a README based on given options and a template', ->
@@ -19,7 +19,7 @@ describe 'A ReadmeCreator', ->
 
     return ReadmeCreator.run args
     .then ->
-      expectedReadme = fs.readFileSync 'README.md', { encoding: 'utf-8' }
+      expectedReadme = fs.readFileSync 'test-fixtures/expected-README.md', { encoding: 'utf-8' }
       expect(fs.readFileSync 'test-fixtures/test-README.md', { encoding: 'utf-8' })
       .to.equal expectedReadme
     .catch (err) ->
