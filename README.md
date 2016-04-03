@@ -77,19 +77,20 @@ You can find a documentation [here](https://rawgit.com/dbartholomae/create-readm
 
 ## Dev Dependencies
 
-- [npm-build-tools](https://github.com/Deathspike/npm-build-tools): Cross-platform command-line tools to help use npm as a build tool.
-- [nodemon](https://github.com/remy/nodemon): Simple monitor script for use during development of a node.js app.
-- [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
-- [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
-- [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
-- [coveralls](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
-- [proxyquire](https://github.com/thlorenz/proxyquire): Proxies nodejs require in order to allow overriding dependencies during testing.
-- [mock-fs](https://github.com/tschaub/mock-fs): A configurable mock file system.  You know, for testing.
-- [lint-coffee-strict](https://github.com/WappForge/lint-coffee-strict): coffeelint preconfigured with WappForge style guide
-- [nsp](https://github.com/nodesecurity/nsp): The Node Security (nodesecurity.io) command line interface
-- [coffee-script](https://github.com/jashkenas/coffeescript): Unfancy JavaScript
-- [test-coffee-module](https://github.com/dbartholomae/test-coffee-module): run tests on .coffee files with sensible defaults
 - [codo](https://github.com/coffeedoc/codo): A CoffeeScript documentation generator.
+- [coffee-script](https://github.com/jashkenas/coffeescript): Unfancy JavaScript
+- [coveralls](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
+- [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
+- [lint-coffee-strict](https://github.com/WappForge/lint-coffee-strict): coffeelint preconfigured with WappForge style guide
+- [mock-fs](https://github.com/tschaub/mock-fs): A configurable mock file system.  You know, for testing.
+- [nodemon](https://github.com/remy/nodemon): Simple monitor script for use during development of a node.js app.
+- [npm-build-tools](https://github.com/Deathspike/npm-build-tools): Cross-platform command-line tools to help use npm as a build tool.
+- [nsp](https://github.com/nodesecurity/nsp): The Node Security (nodesecurity.io) command line interface
+- [proxyquire](https://github.com/thlorenz/proxyquire): Proxies nodejs require in order to allow overriding dependencies during testing.
+- [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
+- [test-coffee-module](https://github.com/dbartholomae/test-coffee-module): run tests on .coffee files with sensible defaults
+- [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
+- [write-version-to-package-json](https://github.com/dbartholomae/write-version-to-package-json): Loads the current version from the npm registry and writes it to package.json
 
 
 ## License
