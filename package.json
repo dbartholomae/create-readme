@@ -73,7 +73,7 @@
     "lint-coffee-strict": "1.0.6",
     "nsp": "*",
     "coffee-script": "*",
-    "test-coffee-module": "1.0.1",
+    "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.2",
     "codo": "2.1.0"
   }
 }
