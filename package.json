@@ -24,7 +24,7 @@
   },
   "scripts": {
     "create-readme": "node bin/create-readme",
-    "build": "n-clean lib && coffee -c -o lib/ src/",
+    "build": "n-clean lib && coffee -c -o lib/ src/ && npm run create-readme",
     "document": "codo src --min-coverage 100",
     "document:check": "codo src --test --min-coverage 100",
     "document:commit": "npm run document:try-commit || echo \"No changes committed\"",
@@ -62,18 +62,19 @@
     "winston": "^2.1.1"
   },
   "devDependencies": {
-    "npm-build-tools": "*",
-    "nodemon": "*",
-    "ghooks": "*",
-    "validate-commit-msg": "*",
-    "semantic-release": "^4.3.5",
-    "coveralls": "*",
-    "proxyquire": "^1.7.3",
-    "mock-fs": "^3.6.0",
-    "lint-coffee-strict": "1.0.6",
-    "nsp": "*",
+    "codo": "2.1.0",
     "coffee-script": "*",
+    "coveralls": "*",
+    "ghooks": "*",
+    "lint-coffee-strict": "1.0.6",
+    "mock-fs": "^3.6.0",
+    "nodemon": "*",
+    "npm-build-tools": "*",
+    "nsp": "*",
+    "proxyquire": "^1.7.3",
+    "semantic-release": "^4.3.5",
     "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.2",
-    "codo": "2.1.0"
+    "validate-commit-msg": "*",
+    "write-version-to-package-json": "^1.0.1"
   }
 }
