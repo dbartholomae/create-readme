@@ -70,6 +70,7 @@
     "mock-fs": "^3.6.0",
     "nodemon": "*",
     "npm-build-tools": "*",
+    "nsp": "*",
     "proxyquire": "^1.7.3",
     "semantic-release": "git://github.com/dbartholomae/semantic-release.git#caribou",
     "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.2",
