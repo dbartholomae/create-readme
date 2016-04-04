@@ -1,4 +1,4 @@
-# create-readme@1.0.0
+# create-readme@1.1.0
  [![npm version](https://badge.fury.io/js/create-readme.svg)](https://npmjs.org/package/create-readme)  [![build status](https://travis-ci.org/dbartholomae/create-readme.svg)](https://travis-ci.org/dbartholomae/create-readme)  [![coverage status](https://coveralls.io/repos/dbartholomae/create-readme/badge.svg)](https://coveralls.io/github/dbartholomae/create-readme)  [![dependency status](https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io)](https://david-dm.org/dbartholomae/create-readme)  [![devDependency status](https://david-dm.org/dbartholomae/create-readme/dev-status.svg)](https://david-dm.org/dbartholomae/create-readme#info=devDependencies)  [![Gitter](https://badges.gitter.im/dbartholomae/create-readme.svg)](https://gitter.im/dbartholomae/create-readme) 
 
 Automatically creates README.md based on package.json and other existing files.
