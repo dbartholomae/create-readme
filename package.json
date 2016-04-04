@@ -32,7 +32,7 @@
     "test": "test-coffee-module -c && npm run document:check && nsp check",
     "test:light": "test-coffee-module && lint-coffee-strict src examples && npm run document",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "coveralls": "cat coverage/lcov/coverage.txt | coveralls"
+    "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -73,7 +73,7 @@
     "nsp": "*",
     "proxyquire": "^1.7.3",
     "semantic-release": "git://github.com/dbartholomae/semantic-release.git#caribou",
-    "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.2",
+    "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.3",
     "validate-commit-msg": "*",
     "write-version-to-package-json": "^1.0.1"
   }
