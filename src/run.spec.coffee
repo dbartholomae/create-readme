@@ -15,6 +15,7 @@ describe 'A ReadmeCreator', ->
     args.push '--branch', 'master'
     args.push '--doc-file', 'index.html'
     args.push '--replace-references'
+    args.push '--package-path', './test-fixtures/package.json'
     args.push 'test-fixtures/test-README.md'
 
     return ReadmeCreator.run args

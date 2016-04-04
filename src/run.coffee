@@ -25,12 +25,20 @@ module.exports = class ReadmeCreator
       if options.silent
         logger.warn "Tried to set both silent and debug flag"
 
+    if options.silly
+      logger.level = 'silly'
+      if options.silent
+        logger.warn "Tried to set both silent and silly flag"
+
+      if options.debug
+        logger.warn "Tried to set both debug and silly flag"
+
     logger.silly "------------------------------------------------"
     logger.silly "Module invoked with options"
     logger.silly JSON.stringify options, null, 2
     logger.silly "------------------------------------------------"
 
-    @pkg = new PackageJSONReader().read()
+    @pkg = new PackageJSONReader(options).read()
     @options = new OptionsParser().parse @pkg, options
 
   # Parse the readme data
@@ -79,22 +87,24 @@ module.exports = class ReadmeCreator
     list = (v) -> v.split ','
 
     optionNames = [
-      'filename', 'debug', 'silent', 'encoding', 'addDesc', 'modules', 'npmcdn',
-      'licenseFile', 'badges', 'branch', 'docFile', 'replaceReferences'
+      'filename', 'debug', 'silent', 'silly', 'encoding', 'addDesc', 'modules', 'npmcdn',
+      'packagePath', 'licenseFile', 'badges', 'branch', 'docFile', 'replaceReferences'
     ]
 
     # TODO: Figure out why npmcdn is always on
     program
     .version require('../package.json').version
     .usage '[options] <file>'
-    .option '-d, --debug', 'Debug mode'
-    .option '-s, --silent', 'Silent mode'
+    .option '-d, --debug', 'Debug logging mode'
+    .option '-s, --silent', 'Silent logging mode'
+    .option '--silly', 'Silly logging mode'
     .option '--encoding <enc>', 'Encoding to use to read files ["utf-8"]'
     .option '-a, --add-desc <text>', 'Text to add to the description [""]'
     .option '-u, --add-usage <text>', 'Text to add to the usage section [""]'
     .option '-m, --modules <modules>', 'List of support module types ' +
                     '["CommonJS"]', list
     .option '-n, --npmcdn', 'Delivery by npmcdn.com'
+    .option '-p, --package-path <path>', 'Path to package.json from cwd ["./package.json"]'
     .option '--license-file <file>', 'Name of the license file ["LICENSE.txt"]'
     .option '-b, --badges <badges>', 'Badges to use ["npm-version,travis,coveralls,' +
                     'dependencies,devDependencies,gitter"]', list
