@@ -85,6 +85,7 @@ You can find a documentation [here](https://rawgit.com/dbartholomae/create-readm
 - [mock-fs](https://github.com/tschaub/mock-fs): A configurable mock file system.  You know, for testing.
 - [nodemon](https://github.com/remy/nodemon): Simple monitor script for use during development of a node.js app.
 - [npm-build-tools](https://github.com/Deathspike/npm-build-tools): Cross-platform command-line tools to help use npm as a build tool.
+- [nsp](https://github.com/nodesecurity/nsp): The Node Security (nodesecurity.io) command line interface
 - [proxyquire](https://github.com/thlorenz/proxyquire): Proxies nodejs require in order to allow overriding dependencies during testing.
 - [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
 - [test-coffee-module](https://github.com/dbartholomae/test-coffee-module): run tests on .coffee files with sensible defaults
