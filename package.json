@@ -71,9 +71,8 @@
     "npm-build-tools": "*",
     "nsp": "*",
     "proxyquire": "^1.7.3",
-    "semantic-release": "^4.3.5",
+    "semantic-release": "git://github.com/dbartholomae/semantic-release.git#caribou",
     "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.3",
-    "validate-commit-msg": "*",
-    "write-version-to-package-json": "^1.0.1"
+    "validate-commit-msg": "*"
   }
 }
