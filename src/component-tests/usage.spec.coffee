@@ -119,4 +119,4 @@ describe "A UsageParser", ->
     mockFs()
 
     usageParser = new UsageParser()
-    expect(usageParser.run pkg).to.eventually.equal null
+    expect(usageParser.run {}).to.eventually.equal null

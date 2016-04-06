@@ -17,11 +17,13 @@ module.exports = class UsageParser
   # @option options encoding [String] Encoding for reading the file ['utf-8']
   # @option options replaceReferences [Boolean] Replace '../' in examples with pkg name [true]
   # @option options addUsage [String] Additional text for the usage section ['']
+  # @option options exampleDir [String] Examples dir to be used unless in package.json ['examples']
   constructor: (@options) ->
     @options ?= {}
     @options.encoding ?= 'utf-8'
-    @options.addUsage ?= ''
     @options.replaceReferences ?= true
+    @options.addUsage ?= ''
+    @options.exampleDir ?= "examples"
 
   # Includes the files from the examples directory as usage examples. If
   # `this.options.replaceModuleReferences` is true, Strings of the form
