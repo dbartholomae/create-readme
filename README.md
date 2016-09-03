@@ -3,7 +3,7 @@
 
 Automatically creates README.md based on package.json and other existing files.
 
-This package was heavily inspired by [package-json-to-readme](https://github.com/zeke/package-json-to-readme/). It makes use of [http://rawgit.com/](http://rawgit.com/) to serve the documentation and of [http://npmcdn.com/](http://npmcdn.com/) to serve the module. Both are only suitable for small projects.
+This package was heavily inspired by [package-json-to-readme](https://github.com/zeke/package-json-to-readme/). It makes use of [http://rawgit.com/](http://rawgit.com/) to serve the documentation and of [http://unpkg.com/](http://unpkg.com/) to serve the module. Both are only suitable for small projects.
 
 ## Usage
 
@@ -20,7 +20,7 @@ options = {
   addDescription: ''
   addUsage: ''
   modules: ['CommonJS']
-  npmcdn: false
+  unpkg: false
   licenseFile: 'LICENSE.txt'
   badges: ['npm-version', 'travis', 'coveralls', 'dependencies', 'devDependencies', 'gitter']
   branch: 'master'
@@ -41,7 +41,7 @@ readme.catch (err) ->
 
 ```sh
 readme-creator --encoding utf-8 --add-description "" --addUsage "" \
-  --modules CommonJS --no-npmcdn --license-file LICENSE.txt \
+  --modules CommonJS --no-unpkg --license-file LICENSE.txt \
   --badges npm-version,travis,coveralls,dependencies,devDependencies,gitter \
   --branch master \
   README.md

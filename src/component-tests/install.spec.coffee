@@ -14,14 +14,14 @@ describe "An InstallParser", ->
     expect(installParser.run pkg).to.eventually.deep.equal
       modules:
         names: [{ name: 'CommonJS' }]
-      npmcdn: false
+      unpkg: false
 
   it "uses different settings if given", ->
     installParser = new InstallParser
       modules: ['CommonJS', 'RequireJS']
-      npmcdn: true
+      unpkg: true
     expect(installParser.run pkg).to.eventually.deep.equal
       modules:
         names: [{ name: 'CommonJS' }, { name: 'RequireJS' }]
-      npmcdn: true
+      unpkg: true
 

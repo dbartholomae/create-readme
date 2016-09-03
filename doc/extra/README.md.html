@@ -34,7 +34,7 @@
         </p>
       </nav>
       <div id='filecontents'>
-        <h1 id="create-readme-1-1-0">create-readme@1.1.0</h1><p> <a href="https://npmjs.org/package/create-readme"><img src="https://badge.fury.io/js/create-readme.svg" alt="npm version"></a>  <a href="https://travis-ci.org/dbartholomae/create-readme"><img src="https://travis-ci.org/dbartholomae/create-readme.svg" alt="build status"></a>  <a href="https://coveralls.io/github/dbartholomae/create-readme"><img src="https://coveralls.io/repos/dbartholomae/create-readme/badge.svg" alt="coverage status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme"><img src="https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io" alt="dependency status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme#info=devDependencies"><img src="https://david-dm.org/dbartholomae/create-readme/dev-status.svg" alt="devDependency status"></a>  <a href="https://gitter.im/dbartholomae/create-readme"><img src="https://badges.gitter.im/dbartholomae/create-readme.svg" alt="Gitter"></a> </p><p>Automatically creates README.md based on package.json and other existing files.</p><p>This package was heavily inspired by <a href="https://github.com/zeke/package-json-to-readme/">package-json-to-readme</a>. It makes use of <a href="http://rawgit.com/">http://rawgit.com/</a> to serve the documentation and of <a href="http://npmcdn.com/">http://npmcdn.com/</a> to serve the module. Both are only suitable for small projects.</p><h2 id="usage">Usage</h2><p>Configuration options can also be set in package.json&#39;s config.readme.</p><pre><code class="lang-coffeescript"># API use
+        <h1 id="create-readme-1-1-0">create-readme@1.1.0</h1><p> <a href="https://npmjs.org/package/create-readme"><img src="https://badge.fury.io/js/create-readme.svg" alt="npm version"></a>  <a href="https://travis-ci.org/dbartholomae/create-readme"><img src="https://travis-ci.org/dbartholomae/create-readme.svg" alt="build status"></a>  <a href="https://coveralls.io/github/dbartholomae/create-readme"><img src="https://coveralls.io/repos/dbartholomae/create-readme/badge.svg" alt="coverage status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme"><img src="https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io" alt="dependency status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme#info=devDependencies"><img src="https://david-dm.org/dbartholomae/create-readme/dev-status.svg" alt="devDependency status"></a>  <a href="https://gitter.im/dbartholomae/create-readme"><img src="https://badges.gitter.im/dbartholomae/create-readme.svg" alt="Gitter"></a> </p><p>Automatically creates README.md based on package.json and other existing files.</p><p>This package was heavily inspired by <a href="https://github.com/zeke/package-json-to-readme/">package-json-to-readme</a>. It makes use of <a href="http://rawgit.com/">http://rawgit.com/</a> to serve the documentation and of <a href="http://unpkg.com/">http://unpkg.com/</a> to serve the module. Both are only suitable for small projects.</p><h2 id="usage">Usage</h2><p>Configuration options can also be set in package.json&#39;s config.readme.</p><pre><code class="lang-coffeescript"># API use
 
 # Default options, explained in documentation
 options = {
@@ -44,7 +44,7 @@ options = {
   addDescription: &#39;&#39;
   addUsage: &#39;&#39;
   modules: [&#39;CommonJS&#39;]
-  npmcdn: false
+  unpkg: false
   licenseFile: &#39;LICENSE.txt&#39;
   badges: [&#39;npm-version&#39;, &#39;travis&#39;, &#39;coveralls&#39;, &#39;dependencies&#39;, &#39;devDependencies&#39;, &#39;gitter&#39;]
   branch: &#39;master&#39;
@@ -62,7 +62,7 @@ readme.catch (err) -&gt;
   process.exitCode = 1
 </code></pre>
 <pre><code class="lang-sh">readme-creator --encoding utf-8 --add-description &quot;&quot; --addUsage &quot;&quot; \
-  --modules CommonJS --no-npmcdn --license-file LICENSE.txt \
+  --modules CommonJS --no-unpkg --license-file LICENSE.txt \
   --badges npm-version,travis,coveralls,dependencies,devDependencies,gitter \
   --branch master \
   README.md
