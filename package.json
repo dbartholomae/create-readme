@@ -31,7 +31,6 @@
     "test": "test-coffee-module -c && npm run document:check && nsp check",
     "test:light": "test-coffee-module && npm run lint && npm run document",
     "lint": "coffeelint -f .coffeelint.json src examples",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "repository": {
