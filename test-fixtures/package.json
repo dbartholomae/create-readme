@@ -56,25 +56,26 @@
   "dependencies": {
     "bluebird": "^3.1.1",
     "commander": "^2.9.0",
-    "github-url-to-object": "^2.1.0",
-    "mustache": "^2.2.1",
-    "require-all": "^2.0.0",
-    "winston": "^2.1.1"
+    "github-url-to-object": "^4.0.4",
+    "mustache": "^3.0.0",
+    "winston": "^2.4.4"
   },
   "devDependencies": {
-    "codo": "2.1.0",
+    "@lluis/codo": "^2.1.3",
     "coffee-script": "*",
+    "coffeelint": "^2.1.0",
+    "coffeelint-camel-case-vars": "^0.0.4",
+    "coffeelint-no-mocha-only": "^1.0.0",
+    "coffeelint-variable-scope": "^0.0.4",
     "coveralls": "*",
     "ghooks": "*",
-    "lint-coffee-strict": "1.0.6",
-    "mock-fs": "^3.6.0",
+    "mock-fs": "^4.7.0",
     "nodemon": "*",
     "npm-build-tools": "*",
     "nsp": "*",
-    "proxyquire": "^1.7.3",
-    "semantic-release": "^4.3.5",
-    "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.2",
-    "validate-commit-msg": "*",
-    "write-version-to-package-json": "^1.0.1"
+    "proxyquire": "^2.1.0",
+    "semantic-release": "^15.10.2",
+    "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.3",
+    "validate-commit-msg": "*"
   }
 }

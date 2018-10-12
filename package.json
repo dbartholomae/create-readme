@@ -29,7 +29,8 @@
     "document:commit": "npm run document:try-commit || echo \"No changes committed\"",
     "document:try-commit": "git add doc/ && git commit doc/ -n -m \"docs: update documentation\"",
     "test": "test-coffee-module -c && npm run document:check && nsp check",
-    "test:light": "test-coffee-module && lint-coffee-strict src examples && npm run document",
+    "test:light": "test-coffee-module && npm run lint && npm run document",
+    "lint": "coffeelint -f .coffeelint.json src examples",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
@@ -55,23 +56,26 @@
   "dependencies": {
     "bluebird": "^3.1.1",
     "commander": "^2.9.0",
-    "github-url-to-object": "^2.1.0",
-    "mustache": "^2.2.1",
-    "require-all": "^2.0.0",
-    "winston": "^2.1.1"
+    "github-url-to-object": "^4.0.4",
+    "mustache": "^3.0.0",
+    "require-all": "^3.0.0",
+    "winston": "^2.4.4"
   },
   "devDependencies": {
-    "codo": "2.1.0",
+    "@lluis/codo": "^2.1.3",
     "coffee-script": "*",
+    "coffeelint": "^2.1.0",
+    "coffeelint-camel-case-vars": "^0.0.4",
+    "coffeelint-no-mocha-only": "^1.0.0",
+    "coffeelint-variable-scope": "^0.0.4",
     "coveralls": "*",
     "ghooks": "*",
-    "lint-coffee-strict": "1.0.6",
-    "mock-fs": "^3.6.0",
+    "mock-fs": "^4.7.0",
     "nodemon": "*",
     "npm-build-tools": "*",
     "nsp": "*",
-    "proxyquire": "^1.7.3",
-    "semantic-release": "git://github.com/dbartholomae/semantic-release.git#caribou",
+    "proxyquire": "^2.1.0",
+    "semantic-release": "^15.10.2",
     "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.3",
     "validate-commit-msg": "*"
   }

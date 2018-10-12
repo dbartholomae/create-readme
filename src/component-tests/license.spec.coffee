@@ -1,4 +1,4 @@
-proxyquire = require 'proxyquire'
+LicenseParser = require '../components/license.coffee'
 mockFs = require 'mock-fs'
 
 describe "A LicenseParser", ->
@@ -11,10 +11,12 @@ describe "A LicenseParser", ->
       repo: "readme-creator"
       branch: "master"
 
+  afterEach ->
+    mockFs.restore()
+
   it "returns a full license object if the license file is found", ->
-    LicenseParser = proxyquire '../components/license.coffee',
-      fs: mockFs.fs
-        'LICENSE.txt': "All your codebase are belong to us!!!11"
+    mockFs
+      'LICENSE.txt': "All your codebase are belong to us!!!11"
 
     licenseParser = new LicenseParser()
     expect(licenseParser.run pkg).to.eventually.deep.equal
@@ -22,8 +24,7 @@ describe "A LicenseParser", ->
       file: 'LICENSE.txt'
 
   it "returns a license object without file if no license file is found", ->
-    LicenseParser = proxyquire '../components/license.coffee',
-      fs: mockFs.fs()
+    mockFs()
 
     licenseParser = new LicenseParser()
     expect(licenseParser.run pkg).to.eventually.deep.equal
@@ -32,16 +33,14 @@ describe "A LicenseParser", ->
 
   it "returns null if license is not set", ->
     pkg.license = null
-    LicenseParser = proxyquire '../components/license.coffee',
-      fs: mockFs.fs()
+    mockFs()
 
     licenseParser = new LicenseParser()
     expect(licenseParser.run pkg).to.eventually.equal null
 
   it "can be configured via options", ->
-    LicenseParser = proxyquire '../components/license.coffee',
-      fs: mockFs.fs
-        'LICENSE.md': "All your codebase are belong to us!!!11"
+    mockFs
+      'LICENSE.md': "All your codebase are belong to us!!!11"
 
     licenseParser = new LicenseParser
       licenseFile: 'LICENSE.md'

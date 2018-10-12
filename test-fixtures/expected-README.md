@@ -71,26 +71,27 @@ You can find a documentation [here](https://rawgit.com/dbartholomae/create-readm
 - [commander](https://github.com/tj/commander.js): the complete solution for node.js command-line programs
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [mustache](https://github.com/janl/mustache.js): Logic-less {{mustache}} templates with JavaScript
-- [require-all](https://github.com/felixge/node-require-all): An easy way to require all files within a directory.
 - [winston](https://github.com/winstonjs/winston): A multi-transport async logging library for Node.js
 
 
 ## Dev Dependencies
 
-- [codo](https://github.com/coffeedoc/codo): A CoffeeScript documentation generator.
+- [@lluis/codo](https://github.com/coffeedoc/codo): A CoffeeScript documentation generator.
 - [coffee-script](https://github.com/jashkenas/coffeescript): Unfancy JavaScript
+- [coffeelint](https://github.com/clutchski/coffeelint): Lint your CoffeeScript
+- [coffeelint-camel-case-vars](https://github.com/bsklaroff/coffeelint-camel-case-vars): A CoffeeLint rule that ensures variables are camelCased
+- [coffeelint-no-mocha-only](https://github.com/rkstedman/coffeelint-no-mocha-only): This CoffeeLint plugin verifies there are no describe.only's or it.only's left in mocha tests
+- [coffeelint-variable-scope](https://github.com/fragphace/coffeelint-variable-scope): CoffeeLint rule that warn you when you accidentally overwrite outer scope variable
 - [coveralls](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
 - [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
-- [lint-coffee-strict](https://github.com/WappForge/lint-coffee-strict): coffeelint preconfigured with WappForge style guide
 - [mock-fs](https://github.com/tschaub/mock-fs): A configurable mock file system.  You know, for testing.
 - [nodemon](https://github.com/remy/nodemon): Simple monitor script for use during development of a node.js app.
 - [npm-build-tools](https://github.com/Deathspike/npm-build-tools): Cross-platform command-line tools to help use npm as a build tool.
 - [nsp](https://github.com/nodesecurity/nsp): The Node Security (nodesecurity.io) command line interface
 - [proxyquire](https://github.com/thlorenz/proxyquire): Proxies nodejs require in order to allow overriding dependencies during testing.
-- [semantic-release](https://github.com/semantic-release/semantic-release): automated semver compliant package publishing
+- [semantic-release](https://github.com/semantic-release/semantic-release): Automated semver compliant package publishing
 - [test-coffee-module](https://github.com/dbartholomae/test-coffee-module): run tests on .coffee files with sensible defaults
-- [validate-commit-msg](https://github.com/kentcdodds/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
-- [write-version-to-package-json](https://github.com/dbartholomae/write-version-to-package-json): Loads the current version from the npm registry and writes it to package.json
+- [validate-commit-msg](https://github.com/conventional-changelog/validate-commit-msg): Script to validate a commit message follows the conventional changelog standard
 
 
 ## License
