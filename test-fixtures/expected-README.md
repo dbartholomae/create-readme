@@ -92,4 +92,4 @@ You can find a documentation [here](https://rawgit.com/dbartholomae/create-readm
 
 
 ## License
-[MIT](LICENSE.txt)
+[MIT](LICENSE)

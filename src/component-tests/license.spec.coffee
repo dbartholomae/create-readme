@@ -16,12 +16,12 @@ describe "A LicenseParser", ->
 
   it "returns a full license object if the license file is found", ->
     mockFs
-      'LICENSE.txt': "All your codebase are belong to us!!!11"
+      'LICENSE': "All your codebase are belong to us!!!11"
 
     licenseParser = new LicenseParser()
     expect(licenseParser.run pkg).to.eventually.deep.equal
       name: 'MIT'
-      file: 'LICENSE.txt'
+      file: 'LICENSE'
 
   it "returns a license object without file if no license file is found", ->
     mockFs()

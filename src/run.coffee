@@ -105,7 +105,7 @@ module.exports = class ReadmeCreator
                     '["CommonJS"]', list
     .option '-n, --npmcdn', 'Delivery by npmcdn.com'
     .option '-p, --package-path <path>', 'Path to package.json from cwd ["./package.json"]'
-    .option '--license-file <file>', 'Name of the license file ["LICENSE.txt"]'
+    .option '--license-file <file>', 'Name of the license file ["LICENSE"]'
     .option '-b, --badges <badges>', 'Badges to use ["npm-version,travis,coveralls,' +
                     'dependencies,devDependencies,gitter"]', list
     .option '--branch <branch>', 'Branch to use for the documentation ["master"]'

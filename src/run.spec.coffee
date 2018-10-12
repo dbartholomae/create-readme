@@ -10,7 +10,7 @@ describe 'A ReadmeCreator', ->
     args.push '--add-desc', pkg.config.readme.addDesc
     args.push '--add-usage', pkg.config.readme.addUsage
     args.push '--modules', 'CommonJS'
-    args.push '--license-file', 'LICENSE.txt'
+    args.push '--license-file', 'LICENSE'
     args.push '--badges', 'npm-version,travis,coveralls,dependencies,devDependencies,gitter'
     args.push '--branch', 'master'
     args.push '--doc-file', 'index.html'

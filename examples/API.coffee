@@ -9,7 +9,7 @@ options = {
   addUsage: ''
   modules: ['CommonJS']
   npmcdn: false
-  licenseFile: 'LICENSE.txt'
+  licenseFile: 'LICENSE'
   badges: ['npm-version', 'travis', 'coveralls', 'dependencies', 'devDependencies', 'gitter']
   branch: 'master'
   replaceModuleReferences: true

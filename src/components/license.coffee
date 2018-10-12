@@ -11,11 +11,11 @@ module.exports = class LicenseParser
   # and gives its url
   # @param (options) [Object] An optional set of options
   # @option options encoding [String] Encoding for reading the file ['utf-8']
-  # @option options licenseFile [String] Location of the license file ['LICENSE.txt']
+  # @option options licenseFile [String] Location of the license file ['LICENSE']
   constructor: (@options) ->
     @options ?= {}
     @options.encoding ?= 'utf-8'
-    @options.licenseFile ?= 'LICENSE.txt'
+    @options.licenseFile ?= 'LICENSE'
 
   # Create license information
   # @param pkg [Object] package.json data
