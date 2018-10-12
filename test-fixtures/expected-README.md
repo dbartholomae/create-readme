@@ -79,9 +79,6 @@ You can find a documentation [here](https://rawgit.com/dbartholomae/create-readm
 - [@lluis/codo](https://github.com/coffeedoc/codo): A CoffeeScript documentation generator.
 - [coffee-script](https://github.com/jashkenas/coffeescript): Unfancy JavaScript
 - [coffeelint](https://github.com/clutchski/coffeelint): Lint your CoffeeScript
-- [coffeelint-camel-case-vars](https://github.com/bsklaroff/coffeelint-camel-case-vars): A CoffeeLint rule that ensures variables are camelCased
-- [coffeelint-no-mocha-only](https://github.com/rkstedman/coffeelint-no-mocha-only): This CoffeeLint plugin verifies there are no describe.only's or it.only's left in mocha tests
-- [coffeelint-variable-scope](https://github.com/fragphace/coffeelint-variable-scope): CoffeeLint rule that warn you when you accidentally overwrite outer scope variable
 - [coveralls](https://github.com/nickmerwin/node-coveralls): takes json-cov output into stdin and POSTs to coveralls.io
 - [ghooks](https://github.com/gtramontina/ghooks): Simple git hooks
 - [mock-fs](https://github.com/tschaub/mock-fs): A configurable mock file system.  You know, for testing.

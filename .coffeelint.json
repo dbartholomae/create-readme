@@ -1,8 +1,4 @@
 {
-  "camel_case_vars": {
-    "module": "coffeelint-camel-case-vars",
-    "level": "error"
-  },
   "no_mocha_only": {
     "module": "coffeelint-no-mocha-only",
     "level": "error"
