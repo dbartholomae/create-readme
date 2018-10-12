@@ -56,10 +56,10 @@
   "dependencies": {
     "bluebird": "^3.1.1",
     "commander": "^2.9.0",
+    "debug": "^4.1.0",
     "github-url-to-object": "^4.0.4",
     "mustache": "^3.0.0",
-    "require-all": "^3.0.0",
-    "winston": "^2.4.4"
+    "require-all": "^3.0.0"
   },
   "devDependencies": {
     "@lluis/codo": "^2.1.3",
