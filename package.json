@@ -12,7 +12,20 @@
         "the documentation and of [http://npmcdn.com/](http://npmcdn.com/) ",
         "to serve the module. Both are only suitable for small projects."
       ],
-      "addUsage": "Configuration options can also be set in package.json's config.readme."
+      "addUsage": "Configuration options can also be set in package.json's config.readme.",
+      "badges": [
+        "npm-version",
+        "npm-downloads",
+        "open-issues",
+        "license",
+        "debug",
+        "travis",
+        "coveralls",
+        "dependencies",
+        "devDependencies",
+        "semantic-release",
+        "gitter"
+      ]
     },
     "ghooks": {
       "pre-commit": "npm run test:light",
