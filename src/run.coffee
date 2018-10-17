@@ -93,7 +93,6 @@ module.exports = class ReadmeCreator
 
     # TODO: Figure out why npmcdn is always on
     program
-    .version require('../package.json').version
     .usage '[options] <file>'
     .option '-d, --debug', 'Debug logging mode'
     .option '-s, --silent', 'Silent logging mode'
