@@ -34,7 +34,7 @@
         </p>
       </nav>
       <div id='filecontents'>
-        <h1 id="create-readme-1-1-0"><a href="mailto:create-readme@1.1.0">create-readme@1.1.0</a></h1><p> <a href="https://npmjs.org/package/create-readme"><img src="https://badge.fury.io/js/create-readme.svg" alt="npm version"></a>  <a href="https://travis-ci.org/dbartholomae/create-readme"><img src="https://travis-ci.org/dbartholomae/create-readme.svg" alt="build status"></a>  <a href="https://coveralls.io/github/dbartholomae/create-readme"><img src="https://coveralls.io/repos/dbartholomae/create-readme/badge.svg" alt="coverage status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme"><img src="https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io" alt="dependency status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme#info=devDependencies"><img src="https://david-dm.org/dbartholomae/create-readme/dev-status.svg" alt="devDependency status"></a>  <a href="https://gitter.im/dbartholomae/create-readme"><img src="https://badges.gitter.im/dbartholomae/create-readme.svg" alt="Gitter"></a> </p><p>Automatically creates README.md based on package.json and other existing files.</p><p>This package was heavily inspired by <a href="https://github.com/zeke/package-json-to-readme/">package-json-to-readme</a>. It makes use of <a href="http://rawgit.com/">http://rawgit.com/</a> to serve the documentation and of <a href="http://npmcdn.com/">http://npmcdn.com/</a> to serve the module. Both are only suitable for small projects.</p><h2 id="usage">Usage</h2><p>Configuration options can also be set in package.json&#39;s config.readme.</p><pre><code class="language-coffeescript"># API use
+        <h1 id="create-readme-2-0-0"><a href="mailto:create-readme@2.0.0">create-readme@2.0.0</a></h1><p> <a href="https://npmjs.org/package/create-readme"><img src="https://badge.fury.io/js/create-readme.svg" alt="npm version"></a>  <a href="https://npmjs.org/package/create-readme"><img src="https://img.shields.io/npm/dw/create-readme.svg" alt="downloads"></a>  <a href="https://github.com/dbartholomae/create-readme/issues"><img src="https://img.shields.io/github/issues-raw/dbartholomae/create-readme.svg" alt="open issues"></a>  <a href="https://github.com/dbartholomae/create-readme/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dbartholomae/create-readme.svg" alt="license"></a>  <a href="https://github.com/visionmedia/debug#readme"><img src="https://img.shields.io/badge/debug-blue.svg" alt="debug"></a>  <a href="https://travis-ci.org/dbartholomae/create-readme#master"><img src="https://img.shields.io/travis/dbartholomae/create-readme/master.svg" alt="build status"></a>  <a href="https://coveralls.io/github/dbartholomae/create-readme"><img src="https://coveralls.io/repos/dbartholomae/create-readme/badge.svg" alt="coverage status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme"><img src="https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io" alt="dependency status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme#info=devDependencies"><img src="https://david-dm.org/dbartholomae/create-readme/dev-status.svg" alt="devDependency status"></a>  <a href="https://github.com/semantic-release/semantic-release#badge"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic release"></a>  <a href="https://gitter.im/dbartholomae/create-readme"><img src="https://badges.gitter.im/dbartholomae/create-readme.svg" alt="Gitter"></a> </p><p>Automatically creates README.md based on package.json and other existing files.</p><p>This package was heavily inspired by <a href="https://github.com/zeke/package-json-to-readme/">package-json-to-readme</a>. It makes use of <a href="http://rawgit.com/">http://rawgit.com/</a> to serve the documentation and of <a href="http://npmcdn.com/">http://npmcdn.com/</a> to serve the module. Both are only suitable for small projects.</p><h2 id="usage">Usage</h2><p>Configuration options can also be set in package.json&#39;s config.readme.</p><pre><code class="language-coffeescript"># API use
 
 # Default options, explained in documentation
 options = {
@@ -73,29 +73,30 @@ readme.catch (err) -&gt;
 <ul>
 <li><a href="https://github.com/petkaantonov/bluebird">bluebird</a>: Full featured Promises/A+ implementation with exceptionally good performance</li>
 <li><a href="https://github.com/tj/commander.js">commander</a>: the complete solution for node.js command-line programs</li>
+<li><a href="https://github.com/visionmedia/debug">debug</a>: small debugging utility</li>
 <li><a href="https://github.com/zeke/github-url-to-object">github-url-to-object</a>: Extract user, repo, and other interesting properties from GitHub URLs</li>
 <li><a href="https://github.com/janl/mustache.js">mustache</a>: Logic-less {{mustache}} templates with JavaScript</li>
-<li><a href="https://github.com/felixge/node-require-all">require-all</a>: An easy way to require all files within a directory.</li>
-<li><a href="https://github.com/winstonjs/winston">winston</a>: A multi-transport async logging library for Node.js</li>
+<li><a href="">require-all</a>: </li>
 </ul>
 <h2 id="dev-dependencies">Dev Dependencies</h2>
 <ul>
-<li><a href="https://github.com/coffeedoc/codo">codo</a>: A CoffeeScript documentation generator.</li>
+<li><a href="https://github.com/coffeedoc/codo">@lluis/codo</a>: A CoffeeScript documentation generator.</li>
 <li><a href="https://github.com/jashkenas/coffeescript">coffee-script</a>: Unfancy JavaScript</li>
+<li><a href="https://github.com/clutchski/coffeelint">coffeelint</a>: Lint your CoffeeScript</li>
+<li><a href="https://github.com/rkstedman/coffeelint-no-mocha-only">coffeelint-no-mocha-only</a>: This CoffeeLint plugin verifies there are no describe.only&#39;s or it.only&#39;s left in mocha tests</li>
+<li><a href="https://github.com/fragphace/coffeelint-variable-scope">coffeelint-variable-scope</a>: CoffeeLint rule that warn you when you accidentally overwrite outer scope variable</li>
 <li><a href="https://github.com/nickmerwin/node-coveralls">coveralls</a>: takes json-cov output into stdin and POSTs to coveralls.io</li>
 <li><a href="https://github.com/gtramontina/ghooks">ghooks</a>: Simple git hooks</li>
-<li><a href="https://github.com/WappForge/lint-coffee-strict">lint-coffee-strict</a>: coffeelint preconfigured with WappForge style guide</li>
 <li><a href="https://github.com/tschaub/mock-fs">mock-fs</a>: A configurable mock file system.  You know, for testing.</li>
 <li><a href="https://github.com/remy/nodemon">nodemon</a>: Simple monitor script for use during development of a node.js app.</li>
 <li><a href="https://github.com/Deathspike/npm-build-tools">npm-build-tools</a>: Cross-platform command-line tools to help use npm as a build tool.</li>
 <li><a href="https://github.com/nodesecurity/nsp">nsp</a>: The Node Security (nodesecurity.io) command line interface</li>
 <li><a href="https://github.com/thlorenz/proxyquire">proxyquire</a>: Proxies nodejs require in order to allow overriding dependencies during testing.</li>
-<li><a href="https://github.com/semantic-release/semantic-release">semantic-release</a>: automated semver compliant package publishing</li>
+<li><a href="https://github.com/semantic-release/semantic-release">semantic-release</a>: Automated semver compliant package publishing</li>
 <li><a href="https://github.com/dbartholomae/test-coffee-module">test-coffee-module</a>: run tests on .coffee files with sensible defaults</li>
-<li><a href="https://github.com/kentcdodds/validate-commit-msg">validate-commit-msg</a>: Script to validate a commit message follows the conventional changelog standard</li>
-<li><a href="https://github.com/dbartholomae/write-version-to-package-json">write-version-to-package-json</a>: Loads the current version from the npm registry and writes it to package.json</li>
+<li><a href="https://github.com/conventional-changelog/validate-commit-msg">validate-commit-msg</a>: Script to validate a commit message follows the conventional changelog standard</li>
 </ul>
-<h2 id="license">License</h2><p><a href="LICENSE.txt">MIT</a></p>
+<h2 id="license">License</h2><p><a href="LICENSE">MIT</a></p>
       </div>
     </div>
     <div id='footer'>
