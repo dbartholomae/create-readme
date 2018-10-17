@@ -23,7 +23,7 @@
   },
   "scripts": {
     "create-readme": "node bin/create-readme",
-    "build": "n-clean lib && coffee -c -o lib/ src/ && semantic-release pre --write-version && npm run create-readme",
+    "build": "n-clean lib && coffee -c -o lib/ src/ && npm run create-readme",
     "document": "codo src --min-coverage 100",
     "document:check": "codo src --test --min-coverage 100",
     "document:commit": "npm run document:try-commit || echo \"No changes committed\"",
