@@ -28,22 +28,21 @@
       ]
     },
     "ghooks": {
-      "pre-commit": "npm run test:light",
+      "pre-commit": "npm run test:lint",
       "commit-msg": "validate-commit-msg",
-      "post-commit": "npm run document:commit",
       "pre-push": "npm run test"
     }
   },
   "scripts": {
-    "create-readme": "node bin/create-readme",
-    "build": "n-clean lib && coffee -c -o lib/ src/ && npm run create-readme",
-    "document": "codo src --min-coverage 100",
-    "document:check": "codo src --test --min-coverage 100",
-    "document:commit": "npm run document:try-commit || echo \"No changes committed\"",
-    "document:try-commit": "git add doc/ && git commit doc/ -n -m \"docs: update documentation\"",
-    "test": "test-coffee-module -c && npm run document:check && nsp check",
-    "test:light": "test-coffee-module && npm run lint && npm run document",
-    "lint": "coffeelint -f .coffeelint.json src examples",
+    "build": "n-clean lib && coffee -c -o lib/ src/ && npm run doc",
+    "doc": "npm run doc:docs && npm run doc:readme",
+    "doc:docs": "codo src",
+    "doc:readme": "node bin/create-readme",
+    "test": "npm run test:lint && npm run test:docs && npm run test:tests && npm run test:security",
+    "test:docs": "codo src --test --min-coverage 100",
+    "test:lint": "coffeelint -f .coffeelint.json src examples",
+    "test:tests": "test-coffee-module -c",
+    "test:security": "nsp check",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "repository": {
