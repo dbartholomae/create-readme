@@ -14,12 +14,14 @@ module.exports = class BadgeParser
   # These can be changed by setting only a subset as options.badges
   # @param (options) [Object] An optional set of options
   # @option options badges [Array<String>] Badges from badges.json to use
+  # @option options branch [String] The branch to use for the documentation ['master']
   constructor: (@options) ->
     @options ?= {}
     @options.badges ?= [
-      'npm-version', 'travis', 'coveralls', 'dependencies',
+      'npm-version', 'minzipped', 'travis', 'coveralls', 'dependencies',
       'devDependencies', 'gitter'
     ]
+    @options.branch ?= @options.git?.branch ? 'master'
 
   # Create data for badges
   # @param pkg [Object] package.json data
@@ -30,8 +32,9 @@ module.exports = class BadgeParser
       logger.debug " Not adding badges due to missing git repo info"
       return Promise.resolve []
     logger.debug " Adding badges " + @options.badges
+    data = Object.assign { branch: @options.branch }, pkg
 
     return Promise.resolve @options.badges.map (badgeName) ->
-      name: mustache.render badgeData[badgeName].name, pkg
-      img: mustache.render badgeData[badgeName].img, pkg
-      url: mustache.render badgeData[badgeName].url, pkg
+      name: mustache.render badgeData[badgeName].name, data
+      img: mustache.render badgeData[badgeName].img, data
+      url: mustache.render badgeData[badgeName].url, data
