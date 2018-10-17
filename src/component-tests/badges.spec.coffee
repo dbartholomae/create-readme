@@ -20,6 +20,6 @@ describe "A BadgeParser", ->
     )
     expect(badgeParser.run pkg).to.eventually.deep.equal [{
       name: "build status"
-      "img": "https://travis-ci.org/dbartholomae/readme-creator.svg"
-      "url": "https://travis-ci.org/dbartholomae/readme-creator"
+      "img": "https://img.shields.io/travis/dbartholomae/readme-creator/master.svg"
+      "url": "https://travis-ci.org/dbartholomae/readme-creator#master"
     }]

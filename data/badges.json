@@ -6,8 +6,8 @@
   },
   "travis": {
     "name": "build status",
-    "img": "https://travis-ci.org/{{git.user}}/{{git.repo}}.svg",
-    "url": "https://travis-ci.org/{{git.user}}/{{git.repo}}"
+    "img": "https://img.shields.io/travis/{{git.user}}/{{git.repo}}/{{branch}}.svg",
+    "url": "https://travis-ci.org/{{git.user}}/{{git.repo}}#{{branch}}"
   },
   "coveralls": {
     "name": "coverage status",
