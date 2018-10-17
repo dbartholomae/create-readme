@@ -1,4 +1,4 @@
-# {{pkg.name}}@{{pkg.version}}
+# {{pkg.name}}{{#pkg.version}}@{{pkg.version}}{{/pkg.version}}
 {{#badges}} [![{{&name}}]({{&img}})]({{&url}}) {{/badges}}
 
 {{&description}}

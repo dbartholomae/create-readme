@@ -18,7 +18,7 @@ module.exports = class PackageJSONReader
     @options ?= {}
     @options.packagePath ?= './package.json'
     @options.encoding ?= 'utf-8'
-    @options.fieldsNeeded ?= ['name', 'version', 'description']
+    @options.fieldsNeeded ?= ['name', 'description']
 
   # Reads package.json
   # @returns [Object] The parsed data from package.json
