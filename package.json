@@ -36,7 +36,7 @@
   "scripts": {
     "build": "n-clean lib && coffee -c -o lib/ src/ && npm run doc",
     "doc": "npm run doc:docs && npm run doc:readme",
-    "doc:docs": "codo src",
+    "doc:docs": "codo src -o ./docs",
     "doc:readme": "node bin/create-readme",
     "test": "npm run test:lint && npm run test:docs && npm run test:tests && npm run test:security",
     "test:docs": "codo src --test --min-coverage 100",
