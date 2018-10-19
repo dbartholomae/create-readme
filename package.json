@@ -3,6 +3,7 @@
   "description": "Automatically creates README.md based on package.json and other existing files.",
   "bin": "bin/create-readme.js",
   "main": "lib/main.js",
+  "files": ["./bin/**/*", "./lib/**/*", "./data/**/*", "./templates/**/*"],
   "config": {
     "readme": {
       "addDesc": [
