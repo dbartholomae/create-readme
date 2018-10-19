@@ -5,13 +5,7 @@
   "main": "lib/main.js",
   "config": {
     "readme": {
-      "addDesc": [
-        "This package was heavily inspired by [package-json-to-readme]",
-        "(https://github.com/zeke/package-json-to-readme/). ",
-        "It makes use of [http://rawgit.com/](http://rawgit.com/) to serve ",
-        "the documentation and of [http://npmcdn.com/](http://npmcdn.com/) ",
-        "to serve the module. Both are only suitable for small projects."
-      ],
+      "addDesc": "It allows for some customization",
       "addUsage": "Configuration options can also be set in package.json's config.readme."
     },
     "ghooks": {
@@ -38,7 +32,7 @@
     "url": "git+https://github.com/dbartholomae/create-readme.git"
   },
   "directories": {
-    "doc": "doc",
+    "doc": "docs",
     "example": "examples"
   },
   "keywords": [

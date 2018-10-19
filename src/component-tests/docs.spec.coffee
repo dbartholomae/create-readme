@@ -1,4 +1,3 @@
-mockFs = require 'mock-fs'
 DocsParser = require '../components/docs.coffee'
 
 describe "A DocsParser", ->
@@ -10,34 +9,17 @@ describe "A DocsParser", ->
       repo: "readme-creator"
       branch: "master"
 
-  afterEach ->
-    mockFs.restore()
-
-  it "returns a rawgit url if the doc file exists", ->
-    mockFs
-      'doc/index.html': "Some documentation. Oh no, where's the html?"
+  it "returns a GitHub Pages url if the doc directory is set correctly", ->
     docsParser = new DocsParser()
     expect(docsParser.run pkg).to.eventually
-    .deep.equal 'https://rawgit.com/dbartholomae/readme-creator/master/doc/index.html'
+    .deep.equal 'https://dbartholomae.github.io/readme-creator/'
 
-  it "returns null if the doc file doesn't exist", ->
-    mockFs()
+  it "returns null if the doc directory isn't set", ->
+    pkg.directories.doc = null
     docsParser = new DocsParser()
     expect(docsParser.run pkg).to.eventually.deep.equal null
 
   it "returns null if it isn't a git repository", ->
     pkg.git = null
-    mockFs
-      'doc/index.html': "Some documentation. Oh no, where's the html?"
     docsParser = new DocsParser()
     expect(docsParser.run pkg).to.eventually.deep.equal null
-
-  it "accepts different doc files", ->
-    pkg.directories.doc = 'docs'
-    mockFs
-      'docs/index.htm': "Some documentation. Oh no, where's the html?"
-    docsParser = new DocsParser
-      docFile: 'index.htm'
-    expect(docsParser.run pkg).to.eventually
-    .deep.equal 'https://rawgit.com/dbartholomae/readme-creator/master/docs/index.htm'
-

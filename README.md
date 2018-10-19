@@ -3,8 +3,6 @@
 
 Automatically creates README.md based on package.json and other existing files.
 
-This package was heavily inspired by [package-json-to-readme](https://github.com/zeke/package-json-to-readme/). It makes use of [http://rawgit.com/](http://rawgit.com/) to serve the documentation and of [http://npmcdn.com/](http://npmcdn.com/) to serve the module. Both are only suitable for small projects.
-
 ## Usage
 
 Configuration options can also be set in package.json's config.readme.
@@ -63,7 +61,7 @@ This package is provided in these module formats:
 
 ## Documentation
 
-You can find a documentation [here](https://rawgit.com/dbartholomae/create-readme/master/doc/index.html).
+You can find a documentation [here](https://dbartholomae.github.io/create-readme/).
 
 ## Dependencies
 

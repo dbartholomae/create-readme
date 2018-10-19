@@ -3,11 +3,7 @@ Promise = require 'bluebird'
 fs = Promise.promisifyAll require 'fs'
 path = require 'path'
 
-# Creates a link to the documentation with the help of
-# [rawgit](https://rawgit.com/)
-# CAREFUL: The url can only handle limited amounts of traffic and you might get
-# blocked from the service, if it is accessed too often. For more information
-# see [rawgit](https://rawgit.com/)
+# Creates a link to the documentation on the corresponding GitHub Pages page.
 module.exports = class DocsParser
   # @property [String] The name of this component
   @name: "DocsParser"
@@ -23,9 +19,8 @@ module.exports = class DocsParser
     @options.branch ?= @options.git?.branch ? 'master'
     @options.docFile ?= 'index.html'
 
-  # Check whether a documentation exists and the repo uses github.
-  # If both conditions are true, create a link to the documentation with
-  # [rawgit](https://rawgit.com/)
+  # Check whether a documentation exists, it is in /docs and the repo uses github.
+  # If all conditions are true, create a link to the documentation via GitHub Pages.
   # @param pkg [Object] package.json data
   # @returns [Promise<Object>] Documentation information [string]
   run: (pkg) ->
@@ -33,17 +28,13 @@ module.exports = class DocsParser
     unless pkg.git?
       logger.debug " Not adding documentation due to missing git repo info"
       return Promise.resolve null
-    docDir = pkg.directories?.doc ? './doc/'
-    docFile = path.join docDir, @options.docFile
+    docDir = pkg.directories?.doc
+    unless docDir
+      logger.debug " Not adding documentation due to missing directories/doc entry"
+      return Promise.resolve null
+    unless docDir is 'docs'
+      logger.debug " Not adding documentation because it isn't in docs folder " +
+        "and therefore incompatible with GitHub Pages"
+      return Promise.resolve null
 
-    logger.debug " Looking for doc file at " + docFile
-    fs.statAsync docFile
-    .then (stats) ->
-      if stats.isFile()
-        rawgitLink = "https://rawgit.com/" + pkg.git.user + "/" + pkg.git.repo + "/" +
-                pkg.git.branch + "/" + docFile.split(path.sep).join "/"
-        logger.debug " File found, adding rawgit link " + rawgitLink
-        return rawgitLink
-      else
-        return null
-    .catch { code: 'ENOENT' }, -> null
+    return Promise.resolve "https://" + pkg.git.user + ".github.io/" + pkg.git.repo + "/"
