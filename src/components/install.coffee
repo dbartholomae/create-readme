@@ -12,17 +12,17 @@ module.exports = class InstallParser
   constructor: (@options) ->
     @options ?= {}
     @options.modules ?= ['CommonJS']
-    @options.npmcdn ?= false
+    @options.unpkg ?= false
 
   # Create data on installation
   # @param pkg [Object] package.json data
-  # @returns [Promise<String>] Install info { modules: names: [string], npmcdn: boolean }
+  # @returns [Promise<String>] Install info { modules: names: [string], unpkg: boolean }
   run: (pkg) ->
     logger.info "Creating installation info"
     logger.debug " Adding modules " + @options.modules
-    if @options.npmcdn
-      logger.debug " Adding npmcdn"
+    if @options.unpkg
+      logger.debug " Adding unpkg"
     Promise.resolve
       modules:
         names: @options.modules.map (module) -> name: module
-      npmcdn: @options.npmcdn
+      unpkg: @options.unpkg

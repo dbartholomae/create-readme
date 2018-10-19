@@ -87,11 +87,10 @@ module.exports = class ReadmeCreator
     list = (v) -> v.split ','
 
     optionNames = [
-      'filename', 'debug', 'silent', 'silly', 'encoding', 'addDesc', 'modules', 'npmcdn',
+      'filename', 'debug', 'silent', 'silly', 'encoding', 'addDesc', 'modules', 'unpkg',
       'packagePath', 'licenseFile', 'badges', 'branch', 'docFile', 'replaceReferences'
     ]
 
-    # TODO: Figure out why npmcdn is always on
     program
     .usage '[options] <file>'
     .option '-d, --debug', 'Debug logging mode'
@@ -102,7 +101,7 @@ module.exports = class ReadmeCreator
     .option '-u, --add-usage <text>', 'Text to add to the usage section [""]'
     .option '-m, --modules <modules>', 'List of support module types ' +
                     '["CommonJS"]', list
-    .option '-n, --npmcdn', 'Delivery by npmcdn.com'
+    .option '-n, --unpkg', 'Delivery by unpkg.com'
     .option '-p, --package-path <path>', 'Path to package.json from cwd ["./package.json"]'
     .option '--license-file <file>', 'Name of the license file ["LICENSE"]'
     .option '-b, --badges <badges>', 'Badges to use ["npm-version,travis,coveralls,' +

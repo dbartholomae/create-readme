@@ -8,7 +8,7 @@ options = {
   addDescription: ''
   addUsage: ''
   modules: ['CommonJS']
-  npmcdn: false
+  unpkg: false
   licenseFile: 'LICENSE'
   badges: ['npm-version', 'travis', 'coveralls', 'dependencies', 'devDependencies', 'gitter']
   branch: 'master'

@@ -35,8 +35,8 @@ npm install {{&pkg.name}} --save
 - {{&name}}{{/install.modules.names}}
 {{/install.modules}}
 
-{{#install.npmcdn}}The module is available via [npmcdn](https://npmcdn.com/) at
-[https://npmcdn.com/{{pkg.name}}](https://npmcdn.com/{{&pkg.name}}){{/install.npmcdn}}
+{{#install.unpkg}}The module is available via [UNPKG](https://unpkg.com/) at
+[https://unpkg.com/{{pkg.name}}](https://unpkg.com/{{&pkg.name}}){{/install.unpkg}}
 
 {{#docs}}
 ## Documentation
