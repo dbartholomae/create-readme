@@ -34,7 +34,7 @@
         </p>
       </nav>
       <div id='filecontents'>
-        <h1 id="create-readme">create-readme</h1><p> <a href="https://npmjs.org/package/create-readme"><img src="https://badge.fury.io/js/create-readme.svg" alt="npm version"></a>  <a href="https://npmjs.org/package/create-readme"><img src="https://img.shields.io/npm/dw/create-readme.svg" alt="downloads"></a>  <a href="https://github.com/dbartholomae/create-readme/issues"><img src="https://img.shields.io/github/issues-raw/dbartholomae/create-readme.svg" alt="open issues"></a>  <a href="https://github.com/dbartholomae/create-readme/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dbartholomae/create-readme.svg" alt="license"></a>  <a href="https://github.com/visionmedia/debug#readme"><img src="https://img.shields.io/badge/debug-blue.svg" alt="debug"></a>  <a href="https://travis-ci.org/dbartholomae/create-readme#master"><img src="https://img.shields.io/travis/dbartholomae/create-readme/master.svg" alt="build status"></a>  <a href="https://coveralls.io/github/dbartholomae/create-readme"><img src="https://coveralls.io/repos/dbartholomae/create-readme/badge.svg" alt="coverage status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme"><img src="https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io" alt="dependency status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme#info=devDependencies"><img src="https://david-dm.org/dbartholomae/create-readme/dev-status.svg" alt="devDependency status"></a>  <a href="https://github.com/semantic-release/semantic-release#badge"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic release"></a>  <a href="https://gitter.im/dbartholomae/create-readme"><img src="https://badges.gitter.im/dbartholomae/create-readme.svg" alt="Gitter"></a> </p><p>Automatically creates README.md based on package.json and other existing files.</p><p>This package was heavily inspired by <a href="https://github.com/zeke/package-json-to-readme/">package-json-to-readme</a>. It makes use of <a href="http://rawgit.com/">http://rawgit.com/</a> to serve the documentation and of <a href="http://npmcdn.com/">http://npmcdn.com/</a> to serve the module. Both are only suitable for small projects.</p><h2 id="usage">Usage</h2><p>Configuration options can also be set in package.json&#39;s config.readme.</p><pre><code class="language-coffeescript"># API use
+        <h1 id="create-readme">create-readme</h1><p> <a href="https://npmjs.org/package/create-readme"><img src="https://badge.fury.io/js/create-readme.svg" alt="npm version"></a>  <a href="https://npmjs.org/package/create-readme"><img src="https://img.shields.io/npm/dw/create-readme.svg" alt="downloads"></a>  <a href="https://github.com/dbartholomae/create-readme/issues"><img src="https://img.shields.io/github/issues-raw/dbartholomae/create-readme.svg" alt="open issues"></a>  <a href="https://github.com/dbartholomae/create-readme/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dbartholomae/create-readme.svg" alt="license"></a>  <a href="https://github.com/visionmedia/debug#readme"><img src="https://img.shields.io/badge/debug-blue.svg" alt="debug"></a>  <a href="https://travis-ci.org/dbartholomae/create-readme#master"><img src="https://img.shields.io/travis/dbartholomae/create-readme/master.svg" alt="build status"></a>  <a href="https://coveralls.io/github/dbartholomae/create-readme"><img src="https://coveralls.io/repos/dbartholomae/create-readme/badge.svg" alt="coverage status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme"><img src="https://david-dm.org/dbartholomae/create-readme.svg?theme=shields.io" alt="dependency status"></a>  <a href="https://david-dm.org/dbartholomae/create-readme#info=devDependencies"><img src="https://david-dm.org/dbartholomae/create-readme/dev-status.svg" alt="devDependency status"></a>  <a href="https://github.com/semantic-release/semantic-release#badge"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic release"></a>  <a href="https://gitter.im/dbartholomae/create-readme"><img src="https://badges.gitter.im/dbartholomae/create-readme.svg" alt="Gitter"></a> </p><p>Automatically creates README.md based on package.json and other existing files.</p><h2 id="usage">Usage</h2><p>Configuration options can also be set in package.json&#39;s config.readme.</p><pre><code class="language-coffeescript"># API use
 
 # Default options, explained in documentation
 options = {
@@ -44,8 +44,8 @@ options = {
   addDescription: &#39;&#39;
   addUsage: &#39;&#39;
   modules: [&#39;CommonJS&#39;]
-  npmcdn: false
-  licenseFile: &#39;LICENSE.txt&#39;
+  unpkg: false
+  licenseFile: &#39;LICENSE&#39;
   badges: [&#39;npm-version&#39;, &#39;travis&#39;, &#39;coveralls&#39;, &#39;dependencies&#39;, &#39;devDependencies&#39;, &#39;gitter&#39;]
   branch: &#39;master&#39;
   replaceModuleReferences: true
@@ -62,14 +62,15 @@ readme.catch (err) -&gt;
   process.exitCode = 1
 </code></pre>
 <pre><code class="language-sh">readme-creator --encoding utf-8 --add-description &quot;&quot; --addUsage &quot;&quot; \
-  --modules CommonJS --no-npmcdn --license-file LICENSE.txt \
+  --modules CommonJS --no-unpkg --license-file LICENSE.txt \
   --badges npm-version,travis,coveralls,dependencies,devDependencies,gitter \
   --branch master \
-  README.md</code></pre>
+  README.md
+</code></pre>
 <h2 id="installation">Installation</h2><p>Download node at <a href="http://nodejs.org">nodejs.org</a> and install it, if you haven&#39;t already.</p><pre><code class="language-sh">npm install create-readme --save</code></pre><p>This package is provided in these module formats:</p><ul>
 <li>CommonJS</li>
 </ul>
-<h2 id="documentation">Documentation</h2><p>You can find a documentation <a href="https://rawgit.com/dbartholomae/create-readme/master/doc/index.html">here</a>.</p><h2 id="dependencies">Dependencies</h2>
+<h2 id="documentation">Documentation</h2><p>You can find a documentation <a href="https://dbartholomae.github.io/create-readme/">here</a>.</p><h2 id="dependencies">Dependencies</h2>
 <ul>
 <li><a href="https://github.com/petkaantonov/bluebird">bluebird</a>: Full featured Promises/A+ implementation with exceptionally good performance</li>
 <li><a href="https://github.com/tj/commander.js">commander</a>: the complete solution for node.js command-line programs</li>
