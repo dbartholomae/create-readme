@@ -106,7 +106,7 @@ module.exports = class ReadmeCreator
     .option '--license-file <file>', 'Name of the license file ["LICENSE"]'
     .option '-b, --badges <badges>', 'Badges to use ["npm-version,travis,coveralls,' +
                     'dependencies,devDependencies,gitter,circleci,minzipped,npm-downloads,' +
-                    'open-issues,license,semantic-release,debug"]', list
+                    'open-issues,license,semantic-release,debug,greenkeeper"]', list
     .option '--branch <branch>', 'Branch to use for the documentation ["master"]'
     .option '--doc-file <file>', 'Main html file for the documentation ["index.html"]'
     .option '--no-replace-references', 'No replacement of "../" in examples'

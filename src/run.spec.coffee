@@ -11,7 +11,8 @@ describe 'A ReadmeCreator', ->
     args.push '--add-usage', pkg.config.readme.addUsage
     args.push '--modules', 'CommonJS'
     args.push '--license-file', 'LICENSE'
-    args.push '--badges', 'npm-version,travis,coveralls,dependencies,devDependencies,gitter'
+    args.push '--badges', 'npm-version,travis,coveralls,dependencies,' +
+      'devDependencies,gitter,greenkeeper'
     args.push '--branch', 'master'
     args.push '--doc-file', 'index.html'
     args.push '--replace-references'
