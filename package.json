@@ -1,9 +1,10 @@
 {
   "name": "create-readme",
+  "version": "1.0.0",
   "description": "Automatically creates README.md based on package.json and other existing files.",
   "bin": "bin/create-readme.js",
   "main": "lib/main.js",
-  "files": ["./bin/**/*", "./lib/**/*", "./data/**/*", "./templates/**/*"],
+  "files": ["bin/**/*", "lib/**/*", "data/**/*", "templates/**/*"],
   "config": {
     "readme": {
       "addUsage": "Configuration options can also be set in package.json's config.readme.",
