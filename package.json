@@ -3,7 +3,12 @@
   "description": "Automatically creates README.md based on package.json and other existing files.",
   "bin": "bin/create-readme.js",
   "main": "lib/main.js",
-  "files": ["bin/**/*", "lib/**/*", "data/**/*", "templates/**/*"],
+  "files": [
+    "bin/**/*",
+    "lib/**/*",
+    "data/**/*",
+    "templates/**/*"
+  ],
   "config": {
     "readme": {
       "addUsage": "Configuration options can also be set in package.json's config.readme.",
@@ -78,6 +83,7 @@
   },
   "devDependencies": {
     "@lluis/codo": "^2.1.3",
+    "@semantic-release/changelog": "^3.0.1",
     "coffee-script": "*",
     "coffeelint": "^2.1.0",
     "coffeelint-no-mocha-only": "^1.0.0",
