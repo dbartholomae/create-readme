@@ -29,6 +29,15 @@
       "pre-push": "npm run test"
     }
   },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
   "scripts": {
     "build": "n-clean lib && coffee -c -o lib/ src/ && npm run doc",
     "doc": "npm run doc:docs && npm run doc:readme",
