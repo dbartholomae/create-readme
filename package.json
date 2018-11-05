@@ -91,7 +91,7 @@
     "coveralls": "*",
     "ghooks": "*",
     "mock-fs": "^4.7.0",
-    "nodemon": "*",
+    "nodemon": "1.18.5",
     "npm-build-tools": "*",
     "nsp": "*",
     "proxyquire": "^2.1.0",
