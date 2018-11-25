@@ -72,7 +72,6 @@ You can find a documentation [here](https://dbartholomae.github.io/create-readme
 - [commander](https://github.com/tj/commander.js): the complete solution for node.js command-line programs
 - [github-url-to-object](https://github.com/zeke/github-url-to-object): Extract user, repo, and other interesting properties from GitHub URLs
 - [mustache](https://github.com/janl/mustache.js): Logic-less {{mustache}} templates with JavaScript
-- [winston](https://github.com/winstonjs/winston): A multi-transport async logging library for Node.js
 
 
 ## Dev Dependencies
