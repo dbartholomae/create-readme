@@ -77,6 +77,7 @@ You can find a documentation [here](https://dbartholomae.github.io/create-readme
 ## Dev Dependencies
 
 - [@lluis/codo](https://github.com/coffeedoc/codo): A CoffeeScript documentation generator.
+- [@semantic-release/changelog](https://github.com/semantic-release/changelog): semantic-release plugin to create or update a changelog file
 - [coffee-script](https://github.com/jashkenas/coffeescript): Unfancy JavaScript
 - [coffeelint](https://github.com/clutchski/coffeelint): Lint your CoffeeScript
 - [coffeelint-no-mocha-only](https://github.com/rkstedman/coffeelint-no-mocha-only): This CoffeeLint plugin verifies there are no describe.only's or it.only's left in mocha tests
