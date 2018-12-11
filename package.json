@@ -90,7 +90,7 @@
     "coveralls": "*",
     "ghooks": "*",
     "mock-fs": "^4.7.0",
-    "nodemon": "*",
+    "nodemon": "^1.18.8",
     "npm-build-tools": "*",
     "proxyquire": "^2.1.0",
     "semantic-release": "^15.10.2",
