@@ -47,11 +47,10 @@
     "doc": "npm run doc:docs && npm run doc:readme",
     "doc:docs": "codo src -o ./docs",
     "doc:readme": "node bin/create-readme",
-    "test": "npm run test:lint && npm run test:docs && npm run test:tests && npm run test:security",
+    "test": "npm run test:lint && npm run test:docs && npm run test:tests",
     "test:docs": "codo src --test --min-coverage 100",
     "test:lint": "coffeelint -f .coffeelint.json src examples",
     "test:tests": "test-coffee-module -c",
-    "test:security": "nsp check",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "repository": {
@@ -93,7 +92,6 @@
     "mock-fs": "^4.7.0",
     "nodemon": "*",
     "npm-build-tools": "*",
-    "nsp": "*",
     "proxyquire": "^2.1.0",
     "semantic-release": "^15.10.2",
     "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.3",

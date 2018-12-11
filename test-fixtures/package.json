@@ -61,7 +61,6 @@
     "mock-fs": "^4.7.0",
     "nodemon": "*",
     "npm-build-tools": "*",
-    "nsp": "*",
     "proxyquire": "^2.1.0",
     "semantic-release": "^15.10.2",
     "test-coffee-module": "git://github.com/dbartholomae/test-coffee-module.git#v1.0.3",
