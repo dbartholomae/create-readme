@@ -87,7 +87,7 @@
     "coffeelint": "^2.1.0",
     "coffeelint-no-mocha-only": "^1.0.0",
     "coffeelint-variable-scope": "^0.0.4",
-    "coveralls": "*",
+    "coveralls": ">=3.0.13",
     "ghooks": "*",
     "mock-fs": "^4.7.0",
     "nodemon": "^2.0.0",
