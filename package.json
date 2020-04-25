@@ -74,7 +74,7 @@
   "homepage": "https://github.com/dbartholomae/create-readme#readme",
   "dependencies": {
     "bluebird": "^3.1.1",
-    "commander": "^4.0.0",
+    "commander": "^5.1.0",
     "debug": "^4.1.0",
     "github-url-to-object": "^4.0.4",
     "mustache": "^4.0.0",
