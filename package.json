@@ -22,7 +22,6 @@
         "coveralls",
         "dependencies",
         "devDependencies",
-        "greenkeeper",
         "semantic-release",
         "gitter"
       ]
