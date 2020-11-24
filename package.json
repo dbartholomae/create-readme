@@ -42,12 +42,8 @@
   },
   "scripts": {
     "build": "n-clean lib && coffee -c -o lib/ src/ && npm run doc",
-    "doc": "npm run doc:docs && npm run doc:readme",
-    "doc:docs": "codo src -o ./docs",
-    "doc:readme": "node bin/create-readme",
-    "test": "npm run test:docs && npm run test:tests",
-    "test:docs": "codo src --test --min-coverage 100",
-    "test:tests": "test-coffee-module -c",
+    "doc": "node bin/create-readme",
+    "test": "test-coffee-module -c",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "repository": {
@@ -78,7 +74,6 @@
     "require-all": "^3.0.0"
   },
   "devDependencies": {
-    "@lluis/codo": "^2.1.3",
     "@semantic-release/changelog": "^5.0.0",
     "coffee-script": "*",
     "coveralls": "*",
