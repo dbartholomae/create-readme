@@ -27,7 +27,6 @@
       ]
     },
     "ghooks": {
-      "pre-commit": "npm run test:lint",
       "commit-msg": "validate-commit-msg",
       "pre-push": "npm run test"
     }
@@ -46,9 +45,8 @@
     "doc": "npm run doc:docs && npm run doc:readme",
     "doc:docs": "codo src -o ./docs",
     "doc:readme": "node bin/create-readme",
-    "test": "npm run test:lint && npm run test:docs && npm run test:tests",
+    "test": "npm run test:docs && npm run test:tests",
     "test:docs": "codo src --test --min-coverage 100",
-    "test:lint": "coffeelint -f .coffeelint.json src examples",
     "test:tests": "test-coffee-module -c",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
@@ -83,9 +81,6 @@
     "@lluis/codo": "^2.1.3",
     "@semantic-release/changelog": "^5.0.0",
     "coffee-script": "*",
-    "coffeelint": "^2.1.0",
-    "coffeelint-no-mocha-only": "^1.0.0",
-    "coffeelint-variable-scope": "^0.0.4",
     "coveralls": "*",
     "ghooks": "*",
     "mock-fs": "^4.7.0",
